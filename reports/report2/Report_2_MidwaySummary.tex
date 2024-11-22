@@ -1,0 +1,106 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{geometry}
+\geometry{margin=3cm,top=2.5cm}
+
+\title{\textbf{}}
+\author{}
+\date{}
+
+\setcitestyle{square}
+
+\begin{document}
+
+\Large
+\noindent
+\textbf{10623 Midway Executive Summary}\\
+\textbf{Improving Math Problem Solving with Long Context LLMs}
+
+\normalsize
+\noindent
+Anish Kiran Kulkarni (anishkik@andrew.cmu.edu) \\ 
+Rajeev Veeraraghavan (rveerara@andrew.cmu.edu)\\
+Ajay Mittur (amittur@andrew.cmu.edu)
+
+\section{Introduction}
+We explore how increasing context lengths in modern LLMs can improve mathematical reasoning through many-shot in-context learning. Recent work has shown that using hundreds of examples in prompts can significantly boost performance on math tasks. We aim to validate these findings using open-source LLMs and investigate whether synthetic examples can match human-annotated data. Our approach focuses on re-implementing and extending the many-shot prompting techniques from \cite{agarwal2024manyshotincontextlearning} using models like Llama with 128k context windows. We evaluate on the MATH and GSM8K datasets, expecting to demonstrate that increasing the number of in-context examples improves performance regardless of example quality. Our preliminary results with baseline few-shot prompting show promise, and we plan to systematically compare supervised and unsupervised many-shot approaches.
+
+\section{Dataset \& Task}
+We evaluate on two mathematical reasoning datasets - MATH and GSM8K. Our primary metric is exact match accuracy between model outputs and ground truth solutions.
+
+\subsection{MATH}
+The MATH dataset \cite{hendrycksmath2021} contains 12,500 high school-level math problems from competitive math events. Each problem requires producing a normalized final answer (e.g. $\frac{2}{3}$). Problems are categorized by difficulty (1-5) across seven mathematical domains. The dataset tests complex mathematical reasoning and step-by-step problem solving.
+
+\subsection{GSM8K} 
+GSM8K \cite{cobbe2021gsm8k} comprises 8,500 grade school math word problems (7,500 train, 1,000 test). Problems require 2-8 solution steps, with human-written natural language solutions. While problems aren't categorized by topic, answers are exact for reliable evaluation.
+
+\section{Related Work}
+\subsection{Many-Shot In-Context Learning}
+Recent work \cite{agarwal2024manyshotincontextlearning} demonstrated significant gains using many-shot prompting with Gemini 1.5 Pro's long context. They explored both supervised and unsupervised approaches, showing 7.9-9% improvements on math tasks.
+
+\subsection{Long Context Benefits}
+Studies \cite{bertsch2024incontextlearninglongcontextmodels} show performance scales with more examples, though with diminishing returns. Long-context models are less sensitive to example ordering compared to short-context ones.
+
+\subsection{RAG with Long Context}
+Research \cite{jin2024longcontextllmsmeetrag} reveals initial benefits from increased context in retrieval-augmented generation, but performance plateaus with too many retrieved passages.
+
+\subsection{Information Positioning Effects}
+Analysis \cite{liu2023lostmiddlelanguagemodels} shows performance varies based on information location - stronger when relevant content appears at prompt start/end versus middle.
+
+\section{Approach}
+We are implementing a systematic evaluation of many-shot prompting techniques using open-source LLMs with 128k context windows. Our key components include:
+
+\begin{itemize}
+    \item Baseline: Few-shot prompting with 3-5 examples
+    \item Unsupervised many-shot: Up to 500 questions without answers
+    \item Supervised many-shot: Questions with synthetic answers
+    \item Efficient implementation using DsPY framework and prefix prompt caching
+\end{itemize}
+
+\section{Experiments}
+We will conduct the following experimental evaluations:
+
+\subsection{Baseline Results}
+Current few-shot prompting results on our test sets:
+[Results to be added]
+
+\subsection{Scaling Analysis}
+We will evaluate performance vs number of examples (10 to 500):
+[Table/plot to be added showing accuracy vs. number of examples]
+
+\subsection{Example Quality Impact}
+Comparison of different example types:
+[Table comparing human-annotated vs synthetic data performance]
+
+\subsection{Model Size Effects}
+Performance across different model scales:
+[Table comparing results across model sizes]
+
+\section{Plan}
+Remaining project timeline:
+
+\begin{itemize}
+    \item Week 1-2 (All members):
+        \begin{itemize}
+            \item Complete baseline implementation
+            \item Initial experiments with few-shot prompting
+        \end{itemize}
+    \item Week 3 (Anish, Rajeev):
+        \begin{itemize}
+            \item Implement many-shot variations
+            \item Synthetic data generation
+        \end{itemize}
+    \item Week 4 (Ajay, Rajeev):
+        \begin{itemize}
+            \item Run full experimental suite
+            \item Analysis and documentation
+        \end{itemize}
+\end{itemize}
+
+\bibliographystyle{unsrturl}
+\bibliography{references}
+
+\end{document}
