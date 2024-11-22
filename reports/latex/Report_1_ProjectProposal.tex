@@ -1,0 +1,111 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{geometry}
+\geometry{margin=3cm,top=2.5cm}
+
+\title{\textbf{}}
+\author{}
+\date{}
+
+\setcitestyle{square}
+
+\begin{document}
+
+\Large
+\noindent
+\textbf{10623 Project Proposal}\\
+\textbf{Improving Math Problem Solving with Long Context LLMs}
+
+\normalsize
+\\
+\noindent
+\\
+Anish Kiran Kulkarni (anishkik@andrew.cmu.edu) \\ Rajeev Veeraraghavan (rveerara@andrew.cmu.edu)\\ Ajay Mittur (amittur@andrew.cmu.edu)
+
+\section{Introduction}
+
+As part of this project, we would like to explore the potential improvements to performance of LLMs generated due to increasing context size of most LLMs. Specifically we would like to explore the improvements for in context learning that can be achieved by incorporating more information in the prompt made possible due to the larger context size. Inspired  by some recent research \cite{agarwal2024manyshotincontextlearning}, we would like to explore the benefits of many shot learning on solving math problems. We would like to verify the improved accuracies demonstrated in \cite{agarwal2024manyshotincontextlearning} for open source LLMs in solving math problems. 
+
+\section{Dataset \& Task}
+We will use the MATH \cite{cobbe2021trainingverifierssolvemath} and GSM8K \cite{cobbe2021gsm8k} datasets to evaluate whether many-shot prompting improves performance over few-shot prompting. We measure accuracy with exact match of LLM generated answers to ground truth solutions.
+
+% The task we would like to undertake for this project is to use LLMs with in context learning to solve math problems. The metric to evaluate performance on this task would be the fraction of problems solved correctly measured as a percentage. We would like to explore techniques that take advantage of the longer context size of recent LLMs to help improve performance in solving math problems on the datasets described further.
+\subsection{MATH}
+The MATH dataset \cite{hendrycksmath2021} contains 12,500 high school-level math problems from competitive math events. Each problem requires machine learning models to produce a final answer, such as $\frac{2}{3}$, in a normalized form. This normalization makes answers unique, allowing exact match metrics instead of heuristic metrics. Problems in the dataset are categorized by difficulty on a scale of 1 to 5 and span seven mathematical domains like number theory, algebra, and probability. The main goal of the dataset is to evaluate a model’s ability to tackle complex mathematical problems and provide concise solutions.
+\subsection{GSM8K}
+GSM8K \cite{cobbe2021gsm8k} consists of 8500 high quality grade school math problems created by human problem writers. The dataset is split into 7500 training problems and 1000 test problems. Each problem takes between 2 and 8 steps to solve. The human written solutions are in natural sentence form and perform a sequence of basic math operations in each step. The final step contains the answer. Unlike the MATH dataset, the problems are not classified by topics. However, the answers are exact. An exact match accuracy metric is employed to evaluate performance on this dataset as well.
+\section{Related Work}
+\subsection{Using the long context for many shot in context learning}
+In many shot in context learning \cite{agarwal2024manyshotincontextlearning} the authors analyze the benefit of the long context available in Gemini 1.5 Pro LLM. They explore two settings - reinforced in context learning and unsupervised learning. In reinforced in context learning, the authors model generated chain of thoughts in examples provided in the prompt and in unsupervised in context learning they remove reasoning and only include domain specific examples in the prompt. The authors observe and report improvement in performance for various tasks using many shot in context learning. Improvements in accuracy on GSM8K \cite{cobbe2021gsm8k} are from 84\% to 93\% and MATH \cite{hendrycksmath2021} from 50\% to 58.1\%.
+
+\subsection{Analyzing the benefit of longer context overall}
+In In-Context Learning with Long-Context Models: An In-Depth
+Exploration \cite{bertsch2024incontextlearninglongcontextmodels} the authors analyze in context learning for LLMs with larger context size. They identify that performance continues to increase with a large number of examples in the prompt. They identify that example retrieval provides diminishing returns as the length of the context increases. They also find long context in context learning less sensitive to the order of examples as compared to short context. They conclude that overall understanding of in context learning especially in view of the increasing context size remains incomplete and requires further work for more hypothesis validation.
+\subsection{Analyzing RAG performance using long context}
+In Long-Context LLMs Meet RAG: Overcoming Challenges for Long Inputs in RAG \cite{jin2024longcontextllmsmeetrag} the authors evaluate the impact and benefits of long context on performance of retrieval augmented generation.  The authors observe that having more data in the prompt improves quality initially but it reduces as the as the retrieval size keeps increasing. The authors observe that the irrelevant passage negatively affects retrieval augmented generation performance and proppose optimization approaches with and without training to improve performance.
+\subsection{Analyzing impact of information location in input for long context}
+In Lost in the Middle: How Language Models Use Long Contexts \cite{liu2023lostmiddlelanguagemodels} the authors try to analyze how LLMs tend to use the longer context typically availble with recent LLMs. The authors analyze performance using two tasks - multi document question answering and key value retrieval. They observe that the performance on the task is very dependent on the location of the relevant information. The observe that performance is highert when relevant information is at the beginning of the input and performance reduces as the relevant information is further towards the middle of the input. The performance again improves as the relevant information is towards the end of the input.
+% \begin{table}
+%     \centering
+%     \begin{tabular}{ccc}
+%     \textbf{Technique} & \textbf{GSM8K Accuracy Improvement} \cite{cobbe2021gsm8k} & \textbf{MATH Accuracy Improvement} \cite{hendrycksmath2021}\\
+%     \hline
+%     Many Shot ICL & 7.9 \% & 7.9 \%
+%     \end{tabular}
+%     \caption{Accuracy improvement from Many Shot In Context Learning \cite{agarwal2024manyshotincontextlearning}}
+%     \label{tab:related_works}
+% \end{table}
+
+% \section{Approach}
+% \textcolor{red}{Describe the generative AI methods that you plan to implement and compare. Identify your baseline method and which result(s) you plan to replicate. Be sure to include a clear identification of whether your key contribution will be a novel technical approach, a novel application of an existing method to some task, or a from scratch reimplementation}\\
+% We are re-implementing \cite{agarwal2024manyshotincontextlearning} with different open source LLMs and on other tasks (datasets)
+
+\section{Approach}
+
+We aim to re-implement from scratch the work presented in \cite{agarwal2024manyshotincontextlearning} - where supervised and unsupervised many-shot prompting improved performance on MATH and GSM8K datasets in Gemini LLM models. The many-shot prompts' tokens' lengths were of the order of 100k. This means that we should be able to replicate their results on models with maximum context window lengths of 128k tokens.\\
+
+\noindent
+We propose to study the effect of many-shot prompts on open source models like Llama. We will evaluate whether unsupervised many-shot prompting - where the prompt includes up to 500 questions, but no answers - outperforms regular few-shot prompting with both questions and answers. We will also evaluate whether synthetically generated answers improve accuracy, irrespective of their quality.\\
+
+\noindent
+The results that we plan to replicate are the consistent improvements over few-shot prompting achieved by both supervised (re-inforced) and unsupervised many-shot prompting (for an average of a 7.9\% improvement) on MATH. Even if our average improvement is not the same, we expect to see a similar trend where many-shot prompting (unsupervised and re-inforced) beats regular in-context-learning over a range of a number of many-shot prompts. We also expect to replicate the finding that the many-shot prompts obtained from MATH transfer to GSM8K and improve performance slightly even if GSM8K's question distribution is different.\\
+
+\noindent
+For efficiency, we will use existing frameworks (such as DsPY \cite{khattab2023dspycompilingdeclarativelanguage}) to obtain structured outputs and implement prefix prompt caching to save computation and \/or cost when adding many-shot examples. To do prefix prompt caching, we will only add new examples (shots) as we increase the number of shots in our many-shot ablations.
+
+
+\section{Expected outcomes}
+% \textcolor{red}{Describe the experiments you will run and the results you expect (or hope) to get at the end. (In the end, it’s fine if your results do not match these expectations— this is research after all—but you must articulate a hypothesis.)}
+
+% Hypothesis -- many shot ICL with synthetic data (synthetic questions and answers) is better than human annotated data \\
+% quality of synthetic data not important \\ 
+% instead of thousands of examples (many-shot), there are a few that contribute to most of the performance gain.
+
+We hypothesize, that with the increase in context lengths of LLMs, we would be able to improve an LLMs reasoning capabilities by simply scaling the number of in-context examples, in the order of hundreds. Further, we also take a step further and posit that the quality of these in-context examples is not important and synthetically generated examples will realize similar performance gains as human annotated data. Finally, we also want to analyze and understand if there are a smaller set of many-shot examples that provide most of the performance gains.\\
+\\
+To validate this hypothesis, the experiments we plan to run are:
+\begin{itemize}
+    \item Measure model performance differs with different numbers of many shot examples.
+    \item Compare model performance using human annotated few shot prompts and our many shot prompts created with synthetic data.
+    \item Use synthetic data without any data filtering and validation, synthetic data without reference answers (unsupervised ICL), synthetic data with CoT reasoning steps.
+    \item Evaluate different long context open source small and large LMs and measure their performances. We are particularly interested in leading models, Phi, Mistral, Llama 3.1
+\end{itemize}
+\noindent
+At the end of our experiments we hope to get results that support our hypothesis. That is, an improvement over existing benchmarks that use few-shot prompts on the datasets selected. Moreover, we also hope to validate our notion that data quality becomes less important as the number of in-context examples increases.
+
+\section{Plan}
+% \textcolor{red}{Identify how you will break up the work between each of the team members. (We strongly encourage you to consider pair programming or the like for the most important aspects of the implementation.) Identify what you plan to have completed by the Midway Executive Summary deadline.}
+
+We will be collaborating closely for most part of the project through active working sessions and pair programming. However, we also realize the important of splitting up tasks and working in parallel at times. Hence, we have categorized the effort into three main areas: data generation, inference pipeline, evaluation and experimentation, and each of us will take up tasks spanning these areas respectively. As everyone in the team has extensive experience in natural language processing, reinforcement learning, and data generation, we do not plan on isolating tasks that a single individual picks up. That way everyone gets to work on every component of the project as well. We plan to check in every 3 days to discuss our progress, blockers or any issues anyone is facing.
+\noindent
+By the midway executive summary, we plan to have completed the re-implementation of the paper, so that we can focus on improvement and experimentation for the remainder of the project. These can also be interpreted as the major milestones for our project. That is, 1) pipeline re-implementation using open LLMs 2) experimentation and improvement using our proposed methods. Because there are only roughly 4 weeks to complete the project, we felt two milestones, roughly 2 weeks apart was the best way to proceed. We will break it down further into  granular tasks once we start implementing the project.
+
+\pagebreak
+
+\bibliographystyle{unsrturl}
+\bibliography{references}
+
+\end{document}
