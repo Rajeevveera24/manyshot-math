@@ -1,3 +1,6 @@
+**/*.env
+
+
 **/*.dvi
 **/*.fdb_latexmk
 **/*.fls
