@@ -39,7 +39,7 @@ def run_eval():
     baseline = dspy.ChainOfThought(MathSignature)
 
     # evaluator = dspy.evaluate.Evaluate(devset=dataset, num_threads=24, display_progress=True, display_table=True)
-    evaluator = dspy.evaluate.Evaluate(devset=dataset, num_threads=24)
+    evaluator = dspy.evaluate.Evaluate(devset=dataset, num_threads=16, display_progress=True)
 
     score, each_scores, outputs = evaluator(baseline, metric=dspy.evaluate.metrics.answer_exact_match, return_all_scores=True, return_outputs=True)
 
@@ -70,9 +70,11 @@ if __name__ == "__main__":
     parser.add_argument('--port', type=int, nargs='?', const=8000, help="Port of the API")
     args = parser.parse_args()
 
+    print(args)
+
     api_base = f"http://{args.hostname}:{args.port}/v1"
     api_key = "EMPTY"
-    lm = dspy.LM("openai/" + "llm", api_base=api_base, api_key=api_key, cache=False)
+    lm = dspy.LM("openai/" + args.model_name, api_base=api_base, api_key=api_key, cache=False)
     dspy.configure(lm=lm)
 
     run_eval()
