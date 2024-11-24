@@ -29,7 +29,7 @@ class ExperimentLogger:
     unique identifier if no filename is provided.
     """
 
-    def __init__(self, results_file: Optional[str] = None, logging_frequency: int = 20):
+    def __init__(self, results_file: Optional[str] = None, logging_frequency: int = 20, add_timestamp=False):
         """Initialize the ExperimentLogger.
 
         Args:
@@ -52,15 +52,19 @@ class ExperimentLogger:
             self.results_file = str(exp_dir / filename)
             print(f"Results will be saved to: {self.results_file}")
         else:
+            if add_timestamp:
+                timestamp = datetime.now().strftime("%m%d%H")
+                self.results_file = results_file + "_" + timestamp
+                print(f"Results will be saved to: {self.results_file}")
             self.results_file = results_file
 
         self._results_lock = threading.Lock()  # Create lock for results access
         # Start the background task
-        loop = asyncio.get_event_loop()
-        if not loop.is_running():
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
-        loop.create_task(self._monitor_and_save_results())
+        # loop = asyncio.get_event_loop()
+        # if not loop.is_running():
+        #     loop = asyncio.new_event_loop()
+        #     asyncio.set_event_loop(loop)
+        # loop.create_task(self._monitor_and_save_results())
 
     def get_results(self):
         """Return all logged results."""
@@ -76,40 +80,45 @@ class ExperimentLogger:
             "accuracy": correct / total if total > 0 else 0,
         }
 
-    async def _monitor_and_save_results(self):
-        """Background task that monitors results length and saves to file."""
+    # async def _monitor_and_save_results(self):
+    #     """Background task that monitors results length and saves to file."""
 
-        while True:
-            if len(self.results) >= self.logging_frequency:
-                try:
-                    with self._results_lock:  # Acquire lock before accessing results
-                        results_to_save = (
-                            self.results.copy()
-                        )  # Make a copy while locked
-                        self.results = []  # Clear original under lock
+    #     while True:
+    #         if len(self.results) >= self.logging_frequency:
+    #             try:
+    #                 with self._results_lock:  # Acquire lock before accessing results
+    #                     results_to_save = (
+    #                         self.results.copy()
+    #                     )  # Make a copy while locked
+    #                     self.results = []  # Clear original under lock
 
-                    async with aiofiles.open(self.results_file, mode="a") as f:
-                        await f.write(json.dumps(results_to_save, indent=2))
-                        await f.write("\n")  # Add newline between batches
+    #                 async with aiofiles.open(self.results_file, mode="a") as f:
+    #                     await f.write(json.dumps(results_to_save, indent=2))
+    #                     await f.write("\n")  # Add newline between batches
 
-                    print(f"Successfully saved results batch to {self.results_file}")
-                except Exception as e:
-                    print(f"Error saving results: {str(e)}")
-            await asyncio.sleep(5)  # Check every second
+    #                 print(f"Successfully saved results batch to {self.results_file}")
+    #             except Exception as e:
+    #                 print(f"Error saving results: {str(e)}")
+    #         await asyncio.sleep(0.2)  # Check every second
 
     async def force_save_results(self):
         """Force save all current results to file."""
         try:
             with self._results_lock:  # Acquire lock before accessing results
                 results_to_save = self.results.copy()  # Make a copy while locked
+                self.results = []  # Clear results after copying
+            
             print(f"Force saving {len(results_to_save)} results to {self.results_file}")
-            async with aiofiles.open(file=self.results_file, mode="a") as f:
+            async with aiofiles.open(self.results_file, mode="a") as f:
                 await f.write(json.dumps(results_to_save, indent=2))
                 await f.write("\n")  # Add newline between batches
 
             print(f"Successfully force saved results to {self.results_file}")
         except Exception as e:
             print(f"Error force saving results: {str(e)}")
+            # Restore results if save failed
+            with self._results_lock:
+                self.results.extend(results_to_save)
 
     def log_result(self, question_id, predicted_answer, true_answer=None):
         """Log a single result to the experiment results."""
@@ -137,8 +146,9 @@ class ExperimentLogger:
                 }
                 self.results.append(result)
 
-    async def write_results_to_file(self):
-        await self.force_save_results()
+    def write_results_to_file(self):
+        """Write all results to file synchronously by wrapping the async force_save_results."""
+        asyncio.run(self.force_save_results())
         print(f"Results written to {self.results_file}")
 
     def __str__(self):
