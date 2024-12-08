@@ -50,3 +50,21 @@ conda env export > conda_env_reqs_linux.yml
 ```
 
 This allows other developers to update their environments with the latest dependencies.
+
+## Our Results
+
+All our results are reported on questions sourced from MATH500 dataset and answers inferenced from Llama-3.1-8B-Instruct model
+
+### 
+
+| Experiment      | #Shots   | Accuracy       | File (With commit)         |
+|-----------------|----------|----------------|----------------------------|
+| Unsupervised | 4 | 33.75\% | |
+| Unsupervised | 5 | 33.75\% | |
+| Unsupervised | 10 | 18.4% | |
+| Unsupervised | 25 | 33.75\% | |
+| Unsupervised | 50 | 18.4% | |
+| Unsupervised | 125 | 33.75\% | |
+| Unsupervised | 250 | 18.4% | |
+| Unsupervised | 500 | 18.4% | |
+

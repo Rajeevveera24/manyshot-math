@@ -28,9 +28,18 @@ Reasoning: <your step by step reasoning for the answer>
 Answer: <your final answer as a number only>
 ---
 
+Here is a list of problems to get you familiar with the types of questions. Do not solve them.
+
 {}
 
-Here is the problem that you would need to solve:
+Here is the problem that you need to solve. Remeber to follow the format:
+
+---
+Problem: <you will be given a math question> 
+Reasoning: <your step by step reasoning for the answer>
+Answer: <your final answer as a number only>
+---
+
 Problem: {}
 """
 
@@ -48,6 +57,7 @@ def load_math500(path="../datasets/MATH500", split=None):
 
 def create_and_return_manyshot_prompt_as_str(question_list: List[str], num_shots=50) -> str:
     selected_questions = random.sample(question_list, k=num_shots)
+    selected_questions= ["Problem {}: ".format(i+1) + question for i, question in enumerate(selected_questions)]
     return "\n".join(selected_questions)
     
     
@@ -67,6 +77,10 @@ if __name__ == "__main__":
     many_shot_prompt_str = create_and_return_manyshot_prompt_as_str(question_list=all_question_shots_from_math_train, num_shots=num_shots)
     final_input_prompts = [SOLVE_PROMPT.format(many_shot_prompt_str, d['question']) for d in dataset_math_test]
     
+    # print(final_input_prompts[0])
+    
+    # exit(0)
+    
     llm = LLM(
         model="meta-llama/Llama-3.1-8B-Instruct", 
         download_dir="/home/rveerara/.cache/huggingface/hub", 
@@ -80,7 +94,7 @@ if __name__ == "__main__":
         stop_token_ids=[128001, 128008, 128009],
     )
     
-    batch_size = 250
+    batch_size = 170
     logger = ExperimentLogger(results_file="../experiments/rveerara/"+str(num_shots)+"shot_unsupervised.json", logging_frequency=batch_size)
     correct_count = 0
     incorrect_count = 0 
