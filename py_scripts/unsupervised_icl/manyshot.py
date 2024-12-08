@@ -84,7 +84,7 @@ if __name__ == "__main__":
     llm = LLM(
         model="meta-llama/Llama-3.1-8B-Instruct", 
         download_dir="/home/rveerara/.cache/huggingface/hub", 
-        max_model_len=40000,
+        max_model_len=80000,
         gpu_memory_utilization=0.95
     )
     
@@ -94,7 +94,7 @@ if __name__ == "__main__":
         stop_token_ids=[128001, 128008, 128009],
     )
     
-    batch_size = 170
+    batch_size = 100
     logger = ExperimentLogger(results_file="../experiments/rveerara/"+str(num_shots)+"shot_unsupervised.json", logging_frequency=batch_size)
     correct_count = 0
     incorrect_count = 0 
