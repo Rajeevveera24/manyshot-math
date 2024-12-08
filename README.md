@@ -55,9 +55,11 @@ This allows other developers to update their environments with the latest depend
 
 All our results are reported on questions sourced from MATH500 dataset and answers inferenced from Llama-3.1-8B-Instruct model
 
-### 
+### MATH500 - Numeric Subset (Questions with Numeric Ground Truth Answers Only) 
 
-| Experiment      | #Shots   | Accuracy       | Link with Date (With commit)         |
+####
+
+| Experiment      | #Shots   | Accuracy       | Link with Date (To commit)         |
 |-----------------|----------|----------------|----------------------------|
 | Unsupervised | 4 |  | |
 | Unsupervised | 5 | 33.75% | [12/7/24](https://github.com/Rajeevveera24/manyshot-math/blob/f0acf7f1ca9e39d2c8fc05bf72cd45a6cd931b58/experiments/rveerara/5shot_unsupervised.json) |
@@ -69,4 +71,60 @@ All our results are reported on questions sourced from MATH500 dataset and answe
 | Unsupervised | 125 | 41.49% | [12/7/24](https://github.com/Rajeevveera24/manyshot-math/blob/f20e6c58e3ebea4a4981c63ce2fee29469a9f3a2/experiments/rveerara/125shot_unsupervised.json) |
 | Unsupervised | 250 | 41.49% | [12/7/24](https://github.com/Rajeevveera24/manyshot-math/blob/eb75b3784b59eb1b66ac89eae56d780fc62c23d2/experiments/rveerara/250shot_unsupervised.json) |
 | Unsupervised | 500 | - | |
+| Supervised | 4 |  | |
+| Supervised | 5 |  | |
+| Supervised | 10 |  | |
+| Supervised | 25 |  | |
+| Supervised | 50 |  | |
+| Supervised | 75 |  | |
+| Supervised | 100 |  | |
+| Supervised | 125 |  | |
+| Supervised | 250 |  | |
+| Supervised | 500 |  | |
+| Re-inforced | 4 |  | |
+| Re-inforced | 5 |  | |
+| Re-inforced | 10 |  | |
+| Re-inforced | 25 |  | |
+| Re-inforced | 50 |  | |
+| Re-inforced | 75 |  | |
+| Re-inforced | 100 |  | |
+| Re-inforced | 125 |  | |
+| Re-inforced | 250 |  | |
+| Re-inforced | 500 |  | |
 
+### MATH500 - Full Dataset Subset
+
+####
+
+| Experiment      | #Shots   | Accuracy       | Link with Date (To commit)         |
+|-----------------|----------|----------------|----------------------------|
+| Unsupervised | 4 |  | |
+| Unsupervised | 5 |  | |
+| Unsupervised | 10 |  | |
+| Unsupervised | 25 |  | |
+| Unsupervised | 50 |  | |
+| Unsupervised | 75 |  | |
+| Unsupervised | 100 |  | |
+| Unsupervised | 125 |  | |
+| Unsupervised | 250 |  | |
+| Unsupervised | 500 |  | |
+| Supervised | 4 |  | |
+| Supervised | 5 |  | |
+| Supervised | 10 |  | |
+| Supervised | 25 |  | |
+| Supervised | 50 |  | |
+| Supervised | 75 |  | |
+| Supervised | 100 |  | |
+| Supervised | 125 |  | |
+| Supervised | 250 |  | |
+| Supervised | 500 |  | |
+| Re-inforced | 4 |  | |
+| Re-inforced | 5 |  | |
+| Re-inforced | 10 |  | |
+| Re-inforced | 25 |  | |
+| Re-inforced | 50 |  | |
+| Re-inforced | 75 |  | |
+| Re-inforced | 100 |  | |
+| Re-inforced | 125 |  | |
+| Re-inforced | 250 |  | |
+| Re-inforced | 500 |  | |
