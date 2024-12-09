@@ -71,8 +71,8 @@ All our results are reported on questions sourced from MATH500 dataset and answe
 | Unsupervised | 125 | 41.49% | [12/7/24](https://github.com/Rajeevveera24/manyshot-math/blob/f20e6c58e3ebea4a4981c63ce2fee29469a9f3a2/experiments/rveerara/125shot_unsupervised.json) |
 | Unsupervised | 250 | 41.49% | [12/7/24](https://github.com/Rajeevveera24/manyshot-math/blob/eb75b3784b59eb1b66ac89eae56d780fc62c23d2/experiments/rveerara/250shot_unsupervised.json) |
 | Unsupervised | 500 | - | |
-| Supervised | 4 |  | |
-| Supervised | 5 |  | |
+| Supervised | 4 | 31.89% | [12/9/24]() |
+| Supervised | 5 | 36.84% | [12/9/24]() |
 | Supervised | 10 |  | |
 | Supervised | 25 |  | |
 | Supervised | 50 |  | |

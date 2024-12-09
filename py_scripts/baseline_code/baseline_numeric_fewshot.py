@@ -45,8 +45,9 @@ def load_math(path="../datasets/MATH", split="train"):
     examples = [{
         'question': q,
         'answer': a,
+        'reasoning': reasoning,
         "id": id,
-    } for q, a, id in zip(data['question'], data['extracted_answers'], data["id"])]
+    } for q, a, reasoning, id in zip(data['question'], data['extracted_answers'], data['answer'], data["id"])]
 
     return examples
 

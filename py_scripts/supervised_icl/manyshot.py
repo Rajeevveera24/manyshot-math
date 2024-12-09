@@ -1,6 +1,6 @@
 import json
 import os
-from typing import List
+from typing import List, Tuple
 import dspy
 import sys
 from dotenv import load_dotenv
@@ -18,27 +18,23 @@ from baseline_code.baseline_numeric_fewshot import load_math, extract_answer_num
 SOLVE_PROMPT = """
 Answer the math problem in the format shown below. End your response with "<|eot_id|>".
 
-The final answer in number format. Ignore any latex that exists in the question, and determine the numerical answer step by step. Reason logically internally and arrive at a final answer. If you get an expression, simplify it and return a numerical answer. If your answer is a fraction, simplify it and return a decimal rounded to 3 places. You will also be shown upto five exanple problems to help you get familiarized with the type of the problem that you would need to solve. Do not solve these sample problem 
+The final answer in number format. Ignore any latex that exists in the question, and determine the numerical answer step by step. Reason logically internally and arrive at a final answer. If you get an expression, simplify it and return a numerical answer. If your answer is a fraction, simplify it and return a decimal rounded to 3 places. You will also be shown many example problems to help you get familiarized with the type of the problem that you would need to solve. Do not solve these sample problem 
 
 Your final answer should be a number in the last line. Follow the format below:
 
----
+--------------------------------------------------
 Problem: <you will be given a math question> 
 Reasoning: <your step by step reasoning for the answer>
 Answer: <your final answer as a number only>
----
+--------------------------------------------------
 
 Here is a list of problems with answers to get you familiar with the types of questions. Do not solve them.
 
 {}
 
-Here is the problem that you need to solve. Remeber to follow the format:
+--------------------------------------------------
 
----
-Problem: <you will be given a math question> 
-Reasoning: <your step by step reasoning for the answer>
-Answer: <your final answer as a number only>
----
+Here is the problem that you need to solve
 
 Problem: {}
 """
@@ -49,16 +45,17 @@ def load_math500(path="../datasets/MATH500", split=None):
     
     examples = [{
         "question": q,
+        # "reasoning": reasoning, 
         "answer": a,
         "id": id,
     } for q, a, id in zip(data['question'], data['extracted_answers'], data["id"])]
 
     return examples
 
-def create_and_return_manyshot_prompt_as_str(question_list: List[str], num_shots=50) -> str:
+def create_and_return_manyshot_prompt_as_str(question_list: List[Tuple], num_shots=50) -> str:
     selected_questions = random.sample(question_list, k=num_shots)
-    selected_questions= ["Problem {}: ".format(i+1) + question + " Answer: " + answer for i, (question, answer) in enumerate(selected_questions)]
-    return "\n".join(selected_questions)
+    selected_questions= ["\nProblem: "+ question.rstrip("\n") + "\n\nReasoning: " + reasoning.rstrip("\n") + "\n\nAnswer: " + answer.rstrip("\n") + "\n\n" for i, (question, reasoning, answer) in enumerate(selected_questions)]
+    return "\n--------------------------------------------------\n".join(selected_questions).rstrip("\n\n")
     
     
 
@@ -73,7 +70,7 @@ if __name__ == "__main__":
     dataset_math_test = load_math500(split="test")
     dataset_math_train = load_math(split="train")
     
-    all_question_shots_from_math_train = [(instance['question'], instance["answer"]) for instance in dataset_math_train]
+    all_question_shots_from_math_train = [(instance["question"], instance["reasoning"], instance["answer"]) for instance in dataset_math_train]
     many_shot_prompt_str = create_and_return_manyshot_prompt_as_str(question_list=all_question_shots_from_math_train, num_shots=num_shots)
     final_input_prompts = [SOLVE_PROMPT.format(many_shot_prompt_str, d['question']) for d in dataset_math_test]
     
