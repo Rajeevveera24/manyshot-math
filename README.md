@@ -76,7 +76,7 @@ All our results are reported on questions sourced from MATH500 dataset and answe
 | Supervised | 10 | 39.63% | [12/9/24]() |
 | Supervised | 25 | 40.87% | [12/9/24]() |
 | Supervised | 50 | 37.77% | [12/9/24]() |
-| Supervised | 75 |  | |
+| Supervised | 75 | 35.91% | [12/9/24]() |
 | Supervised | 100 |  | |
 | Supervised | 125 |  | |
 | Supervised | 250 |  | |
