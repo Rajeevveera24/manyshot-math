@@ -118,13 +118,13 @@ All our results are reported on questions sourced from MATH500 dataset and answe
 | Supervised | 125 |  | |
 | Supervised | 250 |  | |
 | Supervised | 500 |  | |
-| Re-inforced | 4 |  | |
-| Re-inforced | 5 |  | |
-| Re-inforced | 10 |  | |
-| Re-inforced | 25 |  | |
-| Re-inforced | 50 |  | |
-| Re-inforced | 75 |  | |
-| Re-inforced | 100 |  | |
-| Re-inforced | 125 |  | |
-| Re-inforced | 250 |  | |
-| Re-inforced | 500 |  | |
+| Re-inforced | 4 | 31.2% (w/o LOG from 3 shot) | |
+| Re-inforced | 5 | 31% | |
+| Re-inforced | 10 | 31.6% | |
+| Re-inforced | 25 | - | |
+| Re-inforced | 50 | 31.2% | |
+| Re-inforced | 75 | - | |
+| Re-inforced | 100 | 30.6% | |
+| Re-inforced | 125 | - (hardware errors) | |
+| Re-inforced | 250 | - (hardware errors) | |
+| Re-inforced | 500 | - (hardware errors) | |

@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=math_eval
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=16
+#SBATCH --gres=gpu:L40S:2
+#SBATCH --mem=48G
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=amittur@cs.cmu.edu
 #SBATCH --time=2-00:00:00
@@ -12,9 +12,6 @@
 eval "$(conda shell.bash hook)"
 conda activate manyshot-math 
 
-cd py_scripts
+cd src
 
-python eval_math.py \
-    --model_name $1 \
-    --hostname $2 \
-    --port $3 
+python baseline.py

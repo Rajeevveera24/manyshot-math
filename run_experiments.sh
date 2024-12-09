@@ -22,7 +22,7 @@ while true; do
 done
 
 # Wait for the VLLM server to start
-sleep 200
+sleep 180 
 
 # Get hostname of the VLLM server
 VLLM_HOSTNAME=$(squeue --me --name="vllm_server_${PORT}" -h -o %N)

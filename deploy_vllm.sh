@@ -1,9 +1,10 @@
 #!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:A100_40GB:1
+##SBATCH --gres=gpu:L40S:1
 #SBATCH --mem=48G
-#SBATCH --mail-type=ALL
-#SBATCH --mail-user=amittur@cs.cmu.edu
+##SBATCH --mail-type=ALL
+##SBATCH --mail-user=amittur@cs.cmu.edu
 #SBATCH --time=2-00:00:00
 #SBATCH --output=logs/vllm_server-%j.out
 
@@ -18,5 +19,6 @@ vllm serve $model_name \
     --host $(scontrol show hostnames $SLURM_JOB_NODELIST | head -n 1) \
     --port $port \
     --disable-frontend-multiprocessing \
-    --gpu-memory-utilization 0.95 \
-    --served-model-name llm
+    --guided-decoding-backend lm-format-enforcer \
+    --max-num-seqs 16 \
+    # --served-model-name llm
