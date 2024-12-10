@@ -82,7 +82,7 @@ All our results are reported on questions sourced from MATH500 dataset and answe
 | Supervised | 250 |  | |
 | Supervised | 500 |  | |
 | Re-inforced | 4 | 38.08% | [12/10/24]() |
-| Re-inforced | 5 |  | |
+| Re-inforced | 5 | 40.25% | [12/10/24]() |
 | Re-inforced | 10 |  | |
 | Re-inforced | 25 |  | |
 | Re-inforced | 50 |  | |
