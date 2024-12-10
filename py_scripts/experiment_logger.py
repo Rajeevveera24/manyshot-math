@@ -4,7 +4,7 @@ import threading
 import uuid
 from datetime import datetime
 from pathlib import Path
-from typing import Optional
+from typing import List, Optional
 
 import aiofiles
 
@@ -29,7 +29,13 @@ class ExperimentLogger:
     unique identifier if no filename is provided.
     """
 
-    def __init__(self, results_file: Optional[str] = None, logging_frequency: int = 20, add_timestamp=False):
+    def __init__(
+        self,
+        results_file: Optional[str] = None,
+        logging_frequency: int = 20,
+        add_timestamp=False,
+        use_existing=True,
+    ):
         """Initialize the ExperimentLogger.
 
         Args:
@@ -37,6 +43,7 @@ class ExperimentLogger:
                                         Defaults to "experiment_results.json".
         """
         self.results = []
+        self.question_ids_solved = set()
         self.logging_frequency = logging_frequency
         if results_file is None:
             # Generate unique filename with timestamp
@@ -57,6 +64,25 @@ class ExperimentLogger:
                 self.results_file = results_file + "_" + timestamp
                 print(f"Results will be saved to: {self.results_file}")
             self.results_file = results_file
+
+        if not use_existing:
+            with open(self.results_file, "w") as f:
+                f.write("[]")
+            print("Initializing ExperimentLogger with new results file.")
+        else:
+            print("Initializing ExperimentLogger with existing results file.")
+            try:
+                with open(self.results_file, "r") as f:
+                    self.results: List = json.load(f)
+                    existing_ids = [result["question_id"] for result in self.results]
+                    self.question_ids_solved.update(existing_ids)
+                    print("Successfully loaded results from file.")
+            except FileNotFoundError:
+                print("Results file not found. Starting with an empty list.")
+            except json.JSONDecodeError:
+                print(
+                    "Error decoding JSON from the results file. Starting with an empty list."
+                )
 
         self._results_lock = threading.Lock()  # Create lock for results access
         # Start the background task
@@ -103,15 +129,40 @@ class ExperimentLogger:
 
     async def force_save_results(self):
         """Force save all current results to file."""
+        # try:
+        #     with self._results_lock:  # Acquire lock before accessing results
+        #         results_to_save = self.results.copy()  # Make a copy while locked
+        #         self.results = []  # Clear results after copying
+
+        #     print(f"Force saving {len(results_to_save)} results to {self.results_file}")
+        #     async with aiofiles.open(self.results_file, mode="a") as f:
+        #         await f.write(json.dumps(results_to_save, indent=2))
+        #         await f.write("\n")  # Add newline between batches
+
+        #     print(f"Successfully force saved results to {self.results_file}")
+        # except Exception as e:
+        #     print(f"Error force saving results: {str(e)}")
+        #     # Restore results if save failed
+        #     with self._results_lock:
+        #         self.results.extend(results_to_save)
+
         try:
             with self._results_lock:  # Acquire lock before accessing results
                 results_to_save = self.results.copy()  # Make a copy while locked
                 self.results = []  # Clear results after copying
-            
+
             print(f"Force saving {len(results_to_save)} results to {self.results_file}")
-            async with aiofiles.open(self.results_file, mode="a") as f:
-                await f.write(json.dumps(results_to_save, indent=2))
-                await f.write("\n")  # Add newline between batches
+            existing_results = []
+            async with aiofiles.open(self.results_file, mode="r") as f:
+                content = await f.read()
+                if content:  # Check if file is not empty
+                    existing_results = json.loads(content)
+
+            combined_results = existing_results + results_to_save
+
+            async with aiofiles.open(self.results_file, mode="w") as f:
+                await f.write(json.dumps(combined_results, indent=2))
+                await f.write("\n")  # Add newline for readability
 
             print(f"Successfully force saved results to {self.results_file}")
         except Exception as e:
@@ -128,6 +179,7 @@ class ExperimentLogger:
                 "predicted_answer": predicted_answer,
             }
             self.results.append(result)
+            self.question_ids_solved.add(question_id)
 
     def log_results(self, results_list):
         """Log multiple results at once.
@@ -145,6 +197,7 @@ class ExperimentLogger:
                     "predicted_answer": result_data["predicted_answer"],
                 }
                 self.results.append(result)
+                self.question_ids_solved.add(result_data["question_id"])
 
     def write_results_to_file(self):
         """Write all results to file synchronously by wrapping the async force_save_results."""
