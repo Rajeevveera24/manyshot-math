@@ -1,0 +1,1694 @@
+[
+  {
+    "question_id": "test/number_theory/572.json",
+    "predicted_answer": 9.0
+  },
+  {
+    "question_id": "test/prealgebra/1622.json",
+    "predicted_answer": 126.0
+  },
+  {
+    "question_id": "test/number_theory/515.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/1139.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/1032.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/737.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/geometry/248.json",
+    "predicted_answer": 5.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/134.json",
+    "predicted_answer": 50.0
+  },
+  {
+    "question_id": "test/geometry/434.json",
+    "predicted_answer": "124\n\n\n--------------------------------------------------\n\nThe final answer is 1."
+  },
+  {
+    "question_id": "test/intermediate_algebra/1000.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/607.json",
+    "predicted_answer": 12000.0
+  },
+  {
+    "question_id": "test/algebra/1837.json",
+    "predicted_answer": 6.0
+  },
+  {
+    "question_id": "test/algebra/2427.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/counting_and_probability/525.json",
+    "predicted_answer": 2880.0
+  },
+  {
+    "question_id": "test/prealgebra/1840.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/counting_and_probability/666.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/864.json",
+    "predicted_answer": 528.0
+  },
+  {
+    "question_id": "test/counting_and_probability/134.json",
+    "predicted_answer": 144.0
+  },
+  {
+    "question_id": "test/counting_and_probability/119.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/627.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/geometry/967.json",
+    "predicted_answer": 72.0
+  },
+  {
+    "question_id": "test/algebra/24.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/45.json",
+    "predicted_answer": 23.0
+  },
+  {
+    "question_id": "test/prealgebra/930.json",
+    "predicted_answer": 12.0
+  },
+  {
+    "question_id": "test/geometry/627.json",
+    "predicted_answer": 13.0
+  },
+  {
+    "question_id": "test/algebra/2214.json",
+    "predicted_answer": 8.0
+  },
+  {
+    "question_id": "test/prealgebra/1558.json",
+    "predicted_answer": 1.25
+  },
+  {
+    "question_id": "test/geometry/178.json",
+    "predicted_answer": "4/3\n\n\nThe final answer is: 4/3"
+  },
+  {
+    "question_id": "test/precalculus/285.json",
+    "predicted_answer": 12.0
+  },
+  {
+    "question_id": "test/algebra/305.json",
+    "predicted_answer": -5.0
+  },
+  {
+    "question_id": "test/prealgebra/1388.json",
+    "predicted_answer": 83.0
+  },
+  {
+    "question_id": "test/number_theory/1055.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/951.json",
+    "predicted_answer": 12.0
+  },
+  {
+    "question_id": "test/prealgebra/572.json",
+    "predicted_answer": 0.15
+  },
+  {
+    "question_id": "test/algebra/187.json",
+    "predicted_answer": 3.0
+  },
+  {
+    "question_id": "test/algebra/769.json",
+    "predicted_answer": 11.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/1168.json",
+    "predicted_answer": 16.0
+  },
+  {
+    "question_id": "test/algebra/722.json",
+    "predicted_answer": 9901.0
+  },
+  {
+    "question_id": "test/prealgebra/1247.json",
+    "predicted_answer": 5.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/1247.json",
+    "predicted_answer": -16.0
+  },
+  {
+    "question_id": "test/precalculus/675.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/279.json",
+    "predicted_answer": 9.0
+  },
+  {
+    "question_id": "test/prealgebra/1747.json",
+    "predicted_answer": 1.0
+  },
+  {
+    "question_id": "test/prealgebra/1233.json",
+    "predicted_answer": "10%"
+  },
+  {
+    "question_id": "test/precalculus/1313.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/207.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/46.json",
+    "predicted_answer": 409.0
+  },
+  {
+    "question_id": "test/number_theory/516.json",
+    "predicted_answer": 56228.0
+  },
+  {
+    "question_id": "test/geometry/456.json",
+    "predicted_answer": 3.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/623.json",
+    "predicted_answer": 0.0
+  },
+  {
+    "question_id": "test/algebra/1004.json",
+    "predicted_answer": 4.0
+  },
+  {
+    "question_id": "test/prealgebra/192.json",
+    "predicted_answer": 3.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/1849.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/1035.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/2046.json",
+    "predicted_answer": "$\\boxed{\\frac{1 + \\sqrt{77}}{2}}$"
+  },
+  {
+    "question_id": "test/algebra/893.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/307.json",
+    "predicted_answer": 240.0
+  },
+  {
+    "question_id": "test/algebra/567.json",
+    "predicted_answer": "1/3"
+  },
+  {
+    "question_id": "test/algebra/892.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/357.json",
+    "predicted_answer": 3.0
+  },
+  {
+    "question_id": "test/algebra/2023.json",
+    "predicted_answer": 3.0
+  },
+  {
+    "question_id": "test/algebra/873.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/1646.json",
+    "predicted_answer": 195.0
+  },
+  {
+    "question_id": "test/precalculus/34.json",
+    "predicted_answer": -4.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/582.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/362.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/1804.json",
+    "predicted_answer": "13\n\n\n--------------------------------------------------\n\nThe final answer is 13."
+  },
+  {
+    "question_id": "test/number_theory/914.json",
+    "predicted_answer": 9.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/894.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/345.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/counting_and_probability/23957.json",
+    "predicted_answer": 210.0
+  },
+  {
+    "question_id": "test/algebra/2058.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/2593.json",
+    "predicted_answer": 6300.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/1898.json",
+    "predicted_answer": -23.0
+  },
+  {
+    "question_id": "test/counting_and_probability/1060.json",
+    "predicted_answer": 2520.0
+  },
+  {
+    "question_id": "test/algebra/2157.json",
+    "predicted_answer": 2.0
+  },
+  {
+    "question_id": "test/algebra/2251.json",
+    "predicted_answer": 3.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/232.json",
+    "predicted_answer": 121.0
+  },
+  {
+    "question_id": "test/prealgebra/1733.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/505.json",
+    "predicted_answer": 6.0
+  },
+  {
+    "question_id": "test/algebra/1332.json",
+    "predicted_answer": 9.0
+  },
+  {
+    "question_id": "test/geometry/283.json",
+    "predicted_answer": 18.0
+  },
+  {
+    "question_id": "test/algebra/2232.json",
+    "predicted_answer": -3.0
+  },
+  {
+    "question_id": "test/algebra/661.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/753.json",
+    "predicted_answer": 13.0
+  },
+  {
+    "question_id": "test/algebra/246.json",
+    "predicted_answer": 8.0
+  },
+  {
+    "question_id": "test/prealgebra/1686.json",
+    "predicted_answer": 4.0
+  },
+  {
+    "question_id": "test/prealgebra/1807.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/1126.json",
+    "predicted_answer": "27+4\\sqrt{7}"
+  },
+  {
+    "question_id": "test/prealgebra/1297.json",
+    "predicted_answer": 9.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/2022.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/1257.json",
+    "predicted_answer": "1144_5\n\n\nThe final answer is: 1144_5"
+  },
+  {
+    "question_id": "test/intermediate_algebra/1151.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/156.json",
+    "predicted_answer": 6.0
+  },
+  {
+    "question_id": "test/number_theory/612.json",
+    "predicted_answer": "3n-3"
+  },
+  {
+    "question_id": "test/counting_and_probability/159.json",
+    "predicted_answer": 151200.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/1408.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/966.json",
+    "predicted_answer": 24.0
+  },
+  {
+    "question_id": "test/algebra/988.json",
+    "predicted_answer": 14.0
+  },
+  {
+    "question_id": "test/number_theory/931.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/572.json",
+    "predicted_answer": 9.0
+  },
+  {
+    "question_id": "test/prealgebra/1622.json",
+    "predicted_answer": 126.0
+  },
+  {
+    "question_id": "test/number_theory/515.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/1139.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/1032.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/737.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/geometry/248.json",
+    "predicted_answer": 5.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/134.json",
+    "predicted_answer": 50.0
+  },
+  {
+    "question_id": "test/geometry/434.json",
+    "predicted_answer": "124\n\n\n--------------------------------------------------\n\nThe final answer is 1."
+  },
+  {
+    "question_id": "test/intermediate_algebra/1000.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/607.json",
+    "predicted_answer": 12000.0
+  },
+  {
+    "question_id": "test/algebra/1837.json",
+    "predicted_answer": 6.0
+  },
+  {
+    "question_id": "test/algebra/2427.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/counting_and_probability/525.json",
+    "predicted_answer": 2880.0
+  },
+  {
+    "question_id": "test/prealgebra/1840.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/counting_and_probability/666.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/864.json",
+    "predicted_answer": 528.0
+  },
+  {
+    "question_id": "test/counting_and_probability/134.json",
+    "predicted_answer": 144.0
+  },
+  {
+    "question_id": "test/counting_and_probability/119.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/627.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/geometry/967.json",
+    "predicted_answer": 72.0
+  },
+  {
+    "question_id": "test/algebra/24.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/45.json",
+    "predicted_answer": 23.0
+  },
+  {
+    "question_id": "test/prealgebra/930.json",
+    "predicted_answer": 12.0
+  },
+  {
+    "question_id": "test/geometry/627.json",
+    "predicted_answer": 13.0
+  },
+  {
+    "question_id": "test/algebra/2214.json",
+    "predicted_answer": 8.0
+  },
+  {
+    "question_id": "test/prealgebra/1558.json",
+    "predicted_answer": 1.25
+  },
+  {
+    "question_id": "test/geometry/178.json",
+    "predicted_answer": "4/3\n\n\nThe final answer is: 4/3"
+  },
+  {
+    "question_id": "test/precalculus/285.json",
+    "predicted_answer": 12.0
+  },
+  {
+    "question_id": "test/algebra/305.json",
+    "predicted_answer": -5.0
+  },
+  {
+    "question_id": "test/prealgebra/1388.json",
+    "predicted_answer": 83.0
+  },
+  {
+    "question_id": "test/number_theory/1055.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/951.json",
+    "predicted_answer": 12.0
+  },
+  {
+    "question_id": "test/prealgebra/572.json",
+    "predicted_answer": 0.15
+  },
+  {
+    "question_id": "test/algebra/187.json",
+    "predicted_answer": 3.0
+  },
+  {
+    "question_id": "test/algebra/769.json",
+    "predicted_answer": 11.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/1168.json",
+    "predicted_answer": 16.0
+  },
+  {
+    "question_id": "test/algebra/722.json",
+    "predicted_answer": 9901.0
+  },
+  {
+    "question_id": "test/prealgebra/1247.json",
+    "predicted_answer": 5.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/1247.json",
+    "predicted_answer": -16.0
+  },
+  {
+    "question_id": "test/precalculus/675.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/279.json",
+    "predicted_answer": 9.0
+  },
+  {
+    "question_id": "test/prealgebra/1747.json",
+    "predicted_answer": 1.0
+  },
+  {
+    "question_id": "test/prealgebra/1233.json",
+    "predicted_answer": "10%"
+  },
+  {
+    "question_id": "test/precalculus/1313.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/207.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/46.json",
+    "predicted_answer": 409.0
+  },
+  {
+    "question_id": "test/number_theory/516.json",
+    "predicted_answer": 56228.0
+  },
+  {
+    "question_id": "test/geometry/456.json",
+    "predicted_answer": 3.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/623.json",
+    "predicted_answer": 0.0
+  },
+  {
+    "question_id": "test/algebra/1004.json",
+    "predicted_answer": 4.0
+  },
+  {
+    "question_id": "test/prealgebra/192.json",
+    "predicted_answer": 3.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/1849.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/1035.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/2046.json",
+    "predicted_answer": "$\\boxed{\\frac{1 + \\sqrt{77}}{2}}$"
+  },
+  {
+    "question_id": "test/algebra/893.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/307.json",
+    "predicted_answer": 240.0
+  },
+  {
+    "question_id": "test/algebra/567.json",
+    "predicted_answer": "1/3"
+  },
+  {
+    "question_id": "test/algebra/892.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/357.json",
+    "predicted_answer": 3.0
+  },
+  {
+    "question_id": "test/algebra/2023.json",
+    "predicted_answer": 3.0
+  },
+  {
+    "question_id": "test/algebra/873.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/1646.json",
+    "predicted_answer": 195.0
+  },
+  {
+    "question_id": "test/precalculus/34.json",
+    "predicted_answer": -4.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/582.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/362.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/1804.json",
+    "predicted_answer": "13\n\n\n--------------------------------------------------\n\nThe final answer is 13."
+  },
+  {
+    "question_id": "test/number_theory/914.json",
+    "predicted_answer": 9.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/894.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/345.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/counting_and_probability/23957.json",
+    "predicted_answer": 210.0
+  },
+  {
+    "question_id": "test/algebra/2058.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/2593.json",
+    "predicted_answer": 6300.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/1898.json",
+    "predicted_answer": -23.0
+  },
+  {
+    "question_id": "test/counting_and_probability/1060.json",
+    "predicted_answer": 2520.0
+  },
+  {
+    "question_id": "test/algebra/2157.json",
+    "predicted_answer": 2.0
+  },
+  {
+    "question_id": "test/algebra/2251.json",
+    "predicted_answer": 3.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/232.json",
+    "predicted_answer": 121.0
+  },
+  {
+    "question_id": "test/prealgebra/1733.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/505.json",
+    "predicted_answer": 6.0
+  },
+  {
+    "question_id": "test/algebra/1332.json",
+    "predicted_answer": 9.0
+  },
+  {
+    "question_id": "test/geometry/283.json",
+    "predicted_answer": 18.0
+  },
+  {
+    "question_id": "test/algebra/2232.json",
+    "predicted_answer": -3.0
+  },
+  {
+    "question_id": "test/algebra/661.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/753.json",
+    "predicted_answer": 13.0
+  },
+  {
+    "question_id": "test/algebra/246.json",
+    "predicted_answer": 8.0
+  },
+  {
+    "question_id": "test/prealgebra/1686.json",
+    "predicted_answer": 4.0
+  },
+  {
+    "question_id": "test/prealgebra/1807.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/1126.json",
+    "predicted_answer": "27+4\\sqrt{7}"
+  },
+  {
+    "question_id": "test/prealgebra/1297.json",
+    "predicted_answer": 9.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/2022.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/1257.json",
+    "predicted_answer": "1144_5\n\n\nThe final answer is: 1144_5"
+  },
+  {
+    "question_id": "test/intermediate_algebra/1151.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/156.json",
+    "predicted_answer": 6.0
+  },
+  {
+    "question_id": "test/number_theory/612.json",
+    "predicted_answer": "3n-3"
+  },
+  {
+    "question_id": "test/counting_and_probability/159.json",
+    "predicted_answer": 151200.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/1408.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/966.json",
+    "predicted_answer": 24.0
+  },
+  {
+    "question_id": "test/algebra/988.json",
+    "predicted_answer": 14.0
+  },
+  {
+    "question_id": "test/number_theory/931.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/572.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/1622.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/515.json",
+    "predicted_answer": 16.0
+  },
+  {
+    "question_id": "test/prealgebra/1139.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/1032.json",
+    "predicted_answer": 2.6
+  },
+  {
+    "question_id": "test/number_theory/737.json",
+    "predicted_answer": 18.0
+  },
+  {
+    "question_id": "test/geometry/248.json",
+    "predicted_answer": 6.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/134.json",
+    "predicted_answer": 65.0
+  },
+  {
+    "question_id": "test/geometry/434.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/1000.json",
+    "predicted_answer": 15.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/607.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/1837.json",
+    "predicted_answer": 350.0
+  },
+  {
+    "question_id": "test/algebra/2427.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/counting_and_probability/525.json",
+    "predicted_answer": 2.0
+  },
+  {
+    "question_id": "test/prealgebra/1840.json",
+    "predicted_answer": 19.0
+  },
+  {
+    "question_id": "test/counting_and_probability/666.json",
+    "predicted_answer": 8.6e-05
+  },
+  {
+    "question_id": "test/number_theory/864.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/counting_and_probability/134.json",
+    "predicted_answer": 6.0
+  },
+  {
+    "question_id": "test/counting_and_probability/119.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/627.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/geometry/967.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/24.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/45.json",
+    "predicted_answer": 7.0
+  },
+  {
+    "question_id": "test/prealgebra/930.json",
+    "predicted_answer": 3.0
+  },
+  {
+    "question_id": "test/geometry/627.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/2214.json",
+    "predicted_answer": 0.0
+  },
+  {
+    "question_id": "test/prealgebra/1558.json",
+    "predicted_answer": 31.5
+  },
+  {
+    "question_id": "test/geometry/178.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/precalculus/285.json",
+    "predicted_answer": 24.0
+  },
+  {
+    "question_id": "test/algebra/305.json",
+    "predicted_answer": 1600.0
+  },
+  {
+    "question_id": "test/prealgebra/1388.json",
+    "predicted_answer": 6.0
+  },
+  {
+    "question_id": "test/number_theory/1055.json",
+    "predicted_answer": 17.0
+  },
+  {
+    "question_id": "test/prealgebra/951.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/572.json",
+    "predicted_answer": 159.0
+  },
+  {
+    "question_id": "test/algebra/187.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/769.json",
+    "predicted_answer": 64.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/1168.json",
+    "predicted_answer": 22.0
+  },
+  {
+    "question_id": "test/algebra/722.json",
+    "predicted_answer": 6.0
+  },
+  {
+    "question_id": "test/prealgebra/1247.json",
+    "predicted_answer": 9.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/1247.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/precalculus/675.json",
+    "predicted_answer": 5.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/279.json",
+    "predicted_answer": 56.0
+  },
+  {
+    "question_id": "test/prealgebra/1747.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/1233.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/precalculus/1313.json",
+    "predicted_answer": 3.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/207.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/46.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/516.json",
+    "predicted_answer": 96.0
+  },
+  {
+    "question_id": "test/geometry/456.json",
+    "predicted_answer": 22.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/623.json",
+    "predicted_answer": 11.0
+  },
+  {
+    "question_id": "test/algebra/1004.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/192.json",
+    "predicted_answer": 90.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/1849.json",
+    "predicted_answer": 10.0
+  },
+  {
+    "question_id": "test/algebra/1035.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/2046.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/893.json",
+    "predicted_answer": 22.0
+  },
+  {
+    "question_id": "test/prealgebra/307.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/567.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/892.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/357.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/2023.json",
+    "predicted_answer": 3.0
+  },
+  {
+    "question_id": "test/algebra/873.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/1646.json",
+    "predicted_answer": "12\n\n\nThe final answer is: $\\boxed{12}$"
+  },
+  {
+    "question_id": "test/precalculus/34.json",
+    "predicted_answer": 7.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/582.json",
+    "predicted_answer": -3.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/362.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/1804.json",
+    "predicted_answer": 156.0
+  },
+  {
+    "question_id": "test/number_theory/914.json",
+    "predicted_answer": 153.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/894.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/345.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/counting_and_probability/23957.json",
+    "predicted_answer": 4.0
+  },
+  {
+    "question_id": "test/algebra/2058.json",
+    "predicted_answer": "15\n\n\nThe final answer is: $\\boxed{15}$"
+  },
+  {
+    "question_id": "test/algebra/2593.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/1898.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/counting_and_probability/1060.json",
+    "predicted_answer": 10.0
+  },
+  {
+    "question_id": "test/algebra/2157.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/2251.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/232.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/1733.json",
+    "predicted_answer": 1250.0
+  },
+  {
+    "question_id": "test/prealgebra/505.json",
+    "predicted_answer": 7.0
+  },
+  {
+    "question_id": "test/algebra/1332.json",
+    "predicted_answer": 2.0
+  },
+  {
+    "question_id": "test/geometry/283.json",
+    "predicted_answer": 255.0
+  },
+  {
+    "question_id": "test/algebra/2232.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/661.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/753.json",
+    "predicted_answer": 1e-05
+  },
+  {
+    "question_id": "test/algebra/246.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/1686.json",
+    "predicted_answer": 36.0
+  },
+  {
+    "question_id": "test/prealgebra/1807.json",
+    "predicted_answer": "$\\boxed{\\sqrt{59}}$"
+  },
+  {
+    "question_id": "test/intermediate_algebra/1126.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/1297.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/2022.json",
+    "predicted_answer": 10.0
+  },
+  {
+    "question_id": "test/number_theory/1257.json",
+    "predicted_answer": 3377.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/1151.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/156.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/612.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/counting_and_probability/159.json",
+    "predicted_answer": 64.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/1408.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/966.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/988.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/931.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/964.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/precalculus/986.json",
+    "predicted_answer": 22.0
+  },
+  {
+    "question_id": "test/geometry/172.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/2570.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/621.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/521.json",
+    "predicted_answer": 11.0
+  },
+  {
+    "question_id": "test/algebra/1255.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/478.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/counting_and_probability/181.json",
+    "predicted_answer": 60.0
+  },
+  {
+    "question_id": "test/geometry/802.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/297.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/841.json",
+    "predicted_answer": 4.0
+  },
+  {
+    "question_id": "test/algebra/686.json",
+    "predicted_answer": 127.0
+  },
+  {
+    "question_id": "test/algebra/351.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/991.json",
+    "predicted_answer": 4.0
+  },
+  {
+    "question_id": "test/number_theory/598.json",
+    "predicted_answer": 1940.0
+  },
+  {
+    "question_id": "test/prealgebra/1113.json",
+    "predicted_answer": 5.0
+  },
+  {
+    "question_id": "test/prealgebra/1908.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/1922.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/1082.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/1214.json",
+    "predicted_answer": 26000.0
+  },
+  {
+    "question_id": "test/number_theory/978.json",
+    "predicted_answer": 7.0
+  },
+  {
+    "question_id": "test/algebra/2199.json",
+    "predicted_answer": 110.0
+  },
+  {
+    "question_id": "test/algebra/733.json",
+    "predicted_answer": -2.0
+  },
+  {
+    "question_id": "test/geometry/702.json",
+    "predicted_answer": 2.0
+  },
+  {
+    "question_id": "test/algebra/109.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/geometry/221.json",
+    "predicted_answer": 1.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/1422.json",
+    "predicted_answer": "2 + 10\\sqrt{13}"
+  },
+  {
+    "question_id": "test/intermediate_algebra/591.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/1937.json",
+    "predicted_answer": 24.0
+  },
+  {
+    "question_id": "test/number_theory/838.json",
+    "predicted_answer": 4.0
+  },
+  {
+    "question_id": "test/prealgebra/1907.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/2086.json",
+    "predicted_answer": 7.0
+  },
+  {
+    "question_id": "test/number_theory/149.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/1555.json",
+    "predicted_answer": 5.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/1510.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/counting_and_probability/389.json",
+    "predicted_answer": 4.0
+  },
+  {
+    "question_id": "test/number_theory/1201.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/234.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/378.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/1555.json",
+    "predicted_answer": 31.0
+  },
+  {
+    "question_id": "test/algebra/2102.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/102.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/counting_and_probability/765.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/907.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/1436.json",
+    "predicted_answer": 23.0
+  },
+  {
+    "question_id": "test/number_theory/89.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/geometry/547.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/183.json",
+    "predicted_answer": "10\n\n\nThe final answer is: $\\boxed{10}$"
+  },
+  {
+    "question_id": "test/algebra/2159.json",
+    "predicted_answer": 22.0
+  },
+  {
+    "question_id": "test/counting_and_probability/71.json",
+    "predicted_answer": 11.0
+  },
+  {
+    "question_id": "test/prealgebra/2057.json",
+    "predicted_answer": 18.0
+  },
+  {
+    "question_id": "test/algebra/1578.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/1837.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/precalculus/989.json",
+    "predicted_answer": "8^{\\frac 13} \\cdot 2^{\\frac 13}"
+  },
+  {
+    "question_id": "test/intermediate_algebra/337.json",
+    "predicted_answer": 8.0
+  },
+  {
+    "question_id": "test/algebra/975.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/geometry/229.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/874.json",
+    "predicted_answer": 0.0
+  },
+  {
+    "question_id": "test/algebra/1143.json",
+    "predicted_answer": 3.0
+  },
+  {
+    "question_id": "test/geometry/254.json",
+    "predicted_answer": 60.0
+  },
+  {
+    "question_id": "test/prealgebra/1251.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/1787.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/1065.json",
+    "predicted_answer": 4.0
+  },
+  {
+    "question_id": "test/algebra/1934.json",
+    "predicted_answer": 60.0
+  },
+  {
+    "question_id": "test/counting_and_probability/894.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/2064.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/counting_and_probability/1009.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/694.json",
+    "predicted_answer": 15.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/149.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/1317.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/geometry/483.json",
+    "predicted_answer": 600.0
+  },
+  {
+    "question_id": "test/algebra/524.json",
+    "predicted_answer": "7\n\n\nThe final answer is: $\\boxed{7}$"
+  },
+  {
+    "question_id": "test/number_theory/466.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/counting_and_probability/913.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/2551.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/634.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/533.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/993.json",
+    "predicted_answer": 32.0
+  },
+  {
+    "question_id": "test/algebra/346.json",
+    "predicted_answer": 4.0
+  },
+  {
+    "question_id": "test/algebra/1282.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/691.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/1287.json",
+    "predicted_answer": "u^2+3u+18"
+  },
+  {
+    "question_id": "test/algebra/1184.json",
+    "predicted_answer": 160.0
+  },
+  {
+    "question_id": "test/prealgebra/1787.json",
+    "predicted_answer": 64.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/1411.json",
+    "predicted_answer": 9.0
+  },
+  {
+    "question_id": "test/number_theory/631.json",
+    "predicted_answer": "4\\sqrt{2}\\sqrt{-32 + 16\\sqrt{5}}"
+  },
+  {
+    "question_id": "test/precalculus/1172.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/1300.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/634.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/counting_and_probability/25149.json",
+    "predicted_answer": 47.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/90.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/488.json",
+    "predicted_answer": 143.0
+  },
+  {
+    "question_id": "test/precalculus/1201.json",
+    "predicted_answer": 10.0
+  },
+  {
+    "question_id": "test/number_theory/1172.json",
+    "predicted_answer": 6.0
+  },
+  {
+    "question_id": "test/geometry/1097.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/counting_and_probability/339.json",
+    "predicted_answer": 31.0
+  },
+  {
+    "question_id": "test/prealgebra/465.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/geometry/965.json",
+    "predicted_answer": 10.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/446.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/1544.json",
+    "predicted_answer": 9.0
+  },
+  {
+    "question_id": "test/number_theory/203.json",
+    "predicted_answer": 121.0
+  },
+  {
+    "question_id": "test/algebra/1842.json",
+    "predicted_answer": 7.0
+  },
+  {
+    "question_id": "test/number_theory/911.json",
+    "predicted_answer": 25.0
+  },
+  {
+    "question_id": "test/algebra/791.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/276.json",
+    "predicted_answer": 89.3
+  },
+  {
+    "question_id": "test/intermediate_algebra/2152.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/425.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/prealgebra/954.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/1936.json",
+    "predicted_answer": 264.11
+  },
+  {
+    "question_id": "test/geometry/465.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/geometry/73.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/117.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/2176.json",
+    "predicted_answer": 11.0
+  },
+  {
+    "question_id": "test/prealgebra/1973.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/counting_and_probability/216.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/intermediate_algebra/190.json",
+    "predicted_answer": 216.0
+  },
+  {
+    "question_id": "test/intermediate_algebra/776.json",
+    "predicted_answer": 2.0
+  },
+  {
+    "question_id": "test/algebra/1457.json",
+    "predicted_answer": 15.0
+  },
+  {
+    "question_id": "test/number_theory/483.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/algebra/2592.json",
+    "predicted_answer": 72.0
+  },
+  {
+    "question_id": "test/prealgebra/1730.json",
+    "predicted_answer": "NO_ANSWER"
+  },
+  {
+    "question_id": "test/number_theory/368.json",
+    "predicted_answer": "NO_ANSWER"
+  }
+]
