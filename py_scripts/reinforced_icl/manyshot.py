@@ -1,14 +1,16 @@
-import argparse
 import json
 import os
-import random
 from typing import List, Tuple
-
-from baseline_code.baseline_numeric_fewshot import extract_answer_numeric
-
-# sys.path.append("..") #Adjust as needed
-from experiment_logger import ExperimentLogger
+import dspy
+import sys
+from dotenv import load_dotenv
 from vllm import LLM, SamplingParams
+import re
+import random
+import argparse
+
+from experiment_logger import ExperimentLogger
+from baseline_code.baseline_numeric_fewshot import load_math, extract_answer_numeric
 
 # sys.path.remove("..")
 
