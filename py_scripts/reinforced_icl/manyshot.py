@@ -16,7 +16,7 @@ from baseline_code.baseline_numeric_fewshot import load_math, extract_answer_num
 
 # load_dotenv("../keys.env")
 
-MAX_REINFORCED_EXAMPLES = 100
+MAX_REINFORCED_EXAMPLES = 4
 
 SOLVE_PROMPT = """
 Answer the math problem in the format shown below. End your response with "<|eot_id|>".
@@ -60,6 +60,8 @@ def load_reinforce(reinforce_filename, num_questions, num_examples, total_exampl
     with open(reinforce_filename, "r") as f:
         data = json.load(f)
     
+    # print(data)
+    
     selected_data = []
 
     for data_instance in data:
@@ -69,6 +71,7 @@ def load_reinforce(reinforce_filename, num_questions, num_examples, total_exampl
     all_selected_examples = []
 
     for i in range(num_questions):
+        # print(len(selected_data), len(selected_data[i]))
         indices = random.sample(list(range(total_examples)), num_examples)
         selected_examples = [selected_data[i][k] for k in indices]
         all_selected_examples.append(selected_examples)
@@ -103,9 +106,12 @@ if __name__ == "__main__":
     num_shots = args.num_shots
     
     dataset_math_test = load_math500(split="test")
-    dataset_math_train = load_reinforce("../src/synth_data/cot_synth_data_70b_int4_100.json", len(dataset_math_test), num_shots, MAX_REINFORCED_EXAMPLES)
+    dataset_math_train = load_reinforce("../src/synth_data/cot_synth_data_70b_int4_50.json", len(dataset_math_test), num_shots, num_shots)
     example_strs = create_and_return_manyshot_prompt_as_str(dataset_math_train)
     final_input_prompts = build_prompts(dataset_math_test, example_strs)
+    
+    # print(final_input_prompts[0])
+    # exit(0) 
     
     llm = LLM(
         model="meta-llama/Llama-3.1-8B-Instruct", 
@@ -121,7 +127,7 @@ if __name__ == "__main__":
     )
     
     batch_size = 100
-    logger = ExperimentLogger(results_file="../experiments/rveerara/"+str(num_shots)+"shot_supervised.json", logging_frequency=batch_size)
+    logger = ExperimentLogger(results_file="../experiments/rveerara/"+str(num_shots)+"shot_reinforced.json", logging_frequency=batch_size, use_existing=False)
     correct_count = 0
     incorrect_count = 0 
     failed_count = 0
