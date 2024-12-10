@@ -103,11 +103,9 @@ if __name__ == "__main__":
     num_shots = args.num_shots
     
     dataset_math_test = load_math500(split="test")
-    dataset_math_train = load_reinforce("../src/synth_data/cot_synth_data_70b_int4_3.json", len(dataset_math_test), num_shots, MAX_REINFORCED_EXAMPLES)
+    dataset_math_train = load_reinforce("../src/synth_data/cot_synth_data_70b_int4_100.json", len(dataset_math_test), num_shots, MAX_REINFORCED_EXAMPLES)
     example_strs = create_and_return_manyshot_prompt_as_str(dataset_math_train)
     final_input_prompts = build_prompts(dataset_math_test, example_strs)
-
-    breakpoint()
     
     llm = LLM(
         model="meta-llama/Llama-3.1-8B-Instruct", 
