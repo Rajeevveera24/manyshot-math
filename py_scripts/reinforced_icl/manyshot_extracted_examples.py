@@ -63,7 +63,7 @@ def load_math_reinforced(path="../datasets/MATH500"):
         'question': q,
         'answer': a,
         'reasoning': reasoning,
-    } for q, a, reasoning in zip(data['question'], data['extracted_answers'], data['answer'])]
+    } for q, a, reasoning in zip(data['question'], data['answers'], data['reasonings'])]
     return examples
 
 def create_and_return_manyshot_prompt_as_str(
@@ -100,7 +100,7 @@ if __name__ == "__main__":
     logger = ExperimentLogger(
         results_file="../experiments/rveerara/"
         + str(num_shots)
-        + "shot_supervised.json",
+        + "shot_reinforced.json",
         logging_frequency=batch_size,
     )
     question_ids_solved_already = logger.question_ids_solved
