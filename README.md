@@ -78,19 +78,19 @@ All our results are reported on questions sourced from MATH500 dataset and answe
 | Supervised | 50 | 37.77% | [12/9/24]() |
 | Supervised | 75 | 35.91% | [12/9/24]() |
 | Supervised | 100 | 32.51% | [12/9/24]() |
-| Supervised | 125 |  | |
-| Supervised | 250 |  | |
-| Supervised | 500 |  | |
+| Supervised | 125 | 27.50% | [12/9/24]() |
+| Supervised | 250 | - | |
+| Supervised | 500 | - | |
 | Re-inforced | 4 | 38.08% | [12/10/24]() |
 | Re-inforced | 5 | 40.25% | [12/10/24]() |
 | Re-inforced | 10 | 40.87% | [12/10/24]() |
 | Re-inforced | 25 | 39.32% | [12/10/24]() |
 | Re-inforced | 50 | 44.58% | [12/10/24]() |
-| Re-inforced | 75 | 48.30%  | |
-| Re-inforced | 100 |  | |
-| Re-inforced | 125 |  | |
-| Re-inforced | 250 |  | |
-| Re-inforced | 500 |  | |
+| Re-inforced | 75 | 48.30%  | [12/10/24]() |
+| Re-inforced | 100 | 38.08% | [12/10/24]() |
+| Re-inforced | 125 | 28.48% | [12/10/24]() |
+| Re-inforced | 250 | 21.00% | [12/10/24]() |
+| Re-inforced | 500 | -  | |
 
 ### MATH500 - Full Dataset Subset
 
