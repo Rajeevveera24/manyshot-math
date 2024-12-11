@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=inf_math_eval
 #SBATCH --nodes=1
-#SBATCH --gres=gpu:A100_40GB:1
+#SBATCH --gres=gpu:L40S:1
 #SBATCH --mem=64G
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=amittur@cs.cmu.edu
