@@ -121,10 +121,10 @@ All our results are reported on questions sourced from MATH500 dataset and answe
 | Re-inforced | 4 | 31.2% (w/o LOG from 3 shot) |[12/9/24](https://github.com/Rajeevveera24/manyshot-math/commit/363b29440ced3de32ecfc4aeed27348c57b029be) |
 | Re-inforced | 5 | 31% |[12/9/24](https://github.com/Rajeevveera24/manyshot-math/commit/363b29440ced3de32ecfc4aeed27348c57b029be) |
 | Re-inforced | 10 | 31.6% |[12/9/24](https://github.com/Rajeevveera24/manyshot-math/commit/363b29440ced3de32ecfc4aeed27348c57b029be) |
-| Re-inforced | 25 | 28.8% |[12/10/24]() |
+| Re-inforced | 25 | 28.8% |[12/10/24](https://github.com/Rajeevveera24/manyshot-math/commit/d943cec0e4bed98ec350f6690dd27d67a3689e24) |
 | Re-inforced | 50 | 31.2% |[12/9/24](https://github.com/Rajeevveera24/manyshot-math/commit/363b29440ced3de32ecfc4aeed27348c57b029be) |
-| Re-inforced | 75 | 31.2% | |
+| Re-inforced | 75 | 31.2% |[12/10/24](https://github.com/Rajeevveera24/manyshot-math/commit/d943cec0e4bed98ec350f6690dd27d67a3689e24) |
 | Re-inforced | 100 | 30.6% |[12/9/24](https://github.com/Rajeevveera24/manyshot-math/commit/363b29440ced3de32ecfc4aeed27348c57b029be) |
-| Re-inforced | 125 | 27.4% | |
+| Re-inforced | 125 | 27.4% |[12/10/24](https://github.com/Rajeevveera24/manyshot-math/commit/d943cec0e4bed98ec350f6690dd27d67a3689e24) |
 | Re-inforced | 250 | - (hardware errors) | |
 | Re-inforced | 500 | - (hardware errors) | |
