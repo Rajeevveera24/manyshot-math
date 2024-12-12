@@ -1,0 +1,238 @@
+\documentclass[twocolumn,11pt]{article}
+
+% Packages
+\usepackage{natbib}      % For bibliography management
+\usepackage{graphicx}    % For including graphics
+\usepackage{amsmath}     % For math symbols and equations
+\usepackage{geometry}    % To adjust page margins
+\usepackage{hyperref}    % For hyperlinks in the document
+\usepackage{times}
+\usepackage[switch]{lineno}      % For line numbers
+
+% \nolinenumbers
+
+\usepackage{todonotes}
+
+% Set the page geometry
+\geometry{a4paper, margin=0.75in}
+
+% Begin Document
+\begin{document}
+
+% Title
+\title{Improving Math Problem Solving with Long Context LLMs}
+\author{Ajay Mittur, Rajeev Veeraraghavan, Anish Kiran Kulkarni \\
+amittur@andrew.cmu.edu, rveerara@andrew.cmu.edu, anishkik@andrew.cmu.edu\\
+10-423/623 Generative AI Course Project}
+\date{\today}
+\maketitle
+
+% \linenumbers
+
+% \begin{abstract}
+% \end{abstract}
+
+
+\section{Introduction}
+% As part of this project, we would like to explore the potential improvements to performance of LLMs generated due to increasing context size of most LLMs. Specifically we would like to explore the improvements for in context learning that can be achieved by incorporating more information in the prompt made possible due to the larger context size. Inspired  by some recent research \cite{agarwal2024manyshotincontextlearning}, we would like to explore the benefits of many shot learning on solving math problems. We would like to verify the improved accuracies demonstrated in \cite{agarwal2024manyshotincontextlearning} for open source LLMs in solving math problems. 
+
+Recent advancements in large language models (LLMs) have significantly increased their context sizes, enabling more extensive in-context learning capabilities. This development offers a unique opportunity to enhance performance on complex tasks by utilizing many-shot prompts, where a greater number of examples can be incorporated into the context. Motivated by recent research \cite{agarwal2024manyshotincontextlearning}, which demonstrates the benefits of many-shot in-context learning for solving mathematical problems, we aim to explore and extend these findings to open-source LLMs, particularly focusing on their performance on challenging datasets like MATH \cite{hendrycksmath2021} and GSM8K \cite{cobbe2021gsm8k}.
+
+Our study seeks to verify whether the performance gains reported for proprietary models can be replicated and generalized to open-source LLMs. Specifically, we evaluate the effectiveness of many-shot prompting in both supervised and unsupervised settings, comparing its performance against traditional few-shot approaches. Additionally, we investigate the potential of using synthetic data to augment many-shot prompts and assess its impact on model accuracy.
+
+To achieve these goals, we reimplement the evaluation methodology used in prior work and conduct experiments using the Llama family of models, which support large context windows up to 128k tokens. We hypothesize that many-shot prompting will yield significant accuracy improvements over few-shot prompting on the MATH dataset and that the benefits will partially transfer to the GSM8K dataset, despite differences in task distributions. Furthermore, we expect to observe that unsupervised many-shot prompting, which excludes answers in the context, can still achieve notable performance gains.
+
+Our approach leverages efficient methods like prefix prompt caching and structured output frameworks to minimize computational overhead and streamline the evaluation process. By systematically varying the number and type of examples in the prompts, we aim to identify optimal configurations for maximizing accuracy. Preliminary results suggest trends consistent with prior findings, indicating that longer context sizes and better example selection are key drivers of performance. Ultimately, our research contributes to a deeper understanding of how to utilize extended context lengths in LLMs to enhance task-specific outcomes effectively.
+
+\section{Dataset \& Task}
+
+We will use the MATH \cite{cobbe2021trainingverifierssolvemath} and GSM8K \cite{cobbe2021gsm8k} datasets to evaluate whether many-shot prompting improves performance over few-shot prompting. We measure accuracy with exact match of LLM generated answers to ground truth solutions. The answers may be produced in latex, so, we also parse these before performing an exact math. To be specific, we use the evaluation function used in the Minerva paper \cite{lewkowycz2022solving}. The source code is linked \href{https://github.com/EleutherAI/lm-evaluation-harness/blob/main/lm_eval/tasks/minerva_math/utils.py}{here}. This is also the closest evaluation function we found to what Meta used while evaluating Llama 3.1 \cite{dubey2024llama3herdmodels}.
+
+% The task we would like to undertake for this project is to use LLMs with in context learning to solve math problems. The metric to evaluate performance on this task would be the fraction of problems solved correctly measured as a percentage. We would like to explore techniques that take advantage of the longer context size of recent LLMs to help improve performance in solving math problems on the datasets described further.
+\subsection{MATH}
+The MATH dataset \cite{hendrycksmath2021} contains 12,500 high school-level math problems from competitive math events. Each problem requires machine learning models to produce a final answer, such as $\frac{2}{3}$, in a normalized form. This normalization makes answers unique, allowing exact match metrics instead of heuristic metrics. Problems in the dataset are categorized by difficulty on a scale of 1 to 5 and span seven mathematical domains like number theory, algebra, and probability. The main goal of the dataset is to evaluate a model’s ability to tackle complex mathematical problems and provide concise solutions.
+
+Further, we partition the MATH dataset into two a smaller subset that has answers which are fully numeric - integers or floats. We do this for 2 reasons. First, it allows us to evaluate results on this subset without parsing latex outputs or using non exact match metrics. Second, we can evaluate whether few and many-shot prompting with this subset of "numerical answer" questions improves performance on problems in GSM8K over selecting example shots from the entire dataset. This is because the questions in both MATH and GSM8K come from different distributions - and using the numerical subset - sans latex - allows us to evaluate out-of-data distrbution performance on a fine grained level. Note that this is something we only do for this milestone and will use latex parsing and perform more comprehensive evaluation for the final milestone as described earlier.
+
+\subsection{GSM8K}
+GSM8K \cite{cobbe2021gsm8k} consists of 8500 high quality grade school math problems created by human problem writers. The dataset is split into 7500 training problems and 1000 test problems. Each problem takes between 2 and 8 steps to solve. The human written solutions are in natural sentence form and perform a sequence of basic math operations in each step. The final step contains the answer. Unlike the MATH dataset, the problems are not classified by topics. However, the answers are exact. The exact match accuracy metric described earlier is employed to evaluate performance on this dataset as well.
+
+\section{Related Work}
+
+\subsection{Using the long context for many shot in context learning}
+In many shot in context learning \cite{agarwal2024manyshotincontextlearning} the authors analyze the benefit of the long context available in Gemini 1.5 Pro LLM. They explore two settings - reinforced in context learning and unsupervised learning. In reinforced in context learning, the authors model generated chain of thoughts in examples provided in the prompt and in unsupervised in context learning they remove reasoning and only include domain specific examples in the prompt. The authors observe and report improvement in performance for various tasks using many shot in context learning. Improvements in accuracy on GSM8K \cite{cobbe2021gsm8k} are from 84\% to 93\% and MATH \cite{hendrycksmath2021} from 50\% to 58.1\%.
+
+\subsection{Analyzing the benefit of longer context overall}
+In In-Context Learning with Long-Context Models: An In-Depth
+Exploration \cite{bertsch2024incontextlearninglongcontextmodels} the authors analyze in context learning for LLMs with larger context size. They identify that performance continues to increase with a large number of examples in the prompt. They identify that example retrieval provides diminishing returns as the length of the context increases. They also find long context in context learning less sensitive to the order of examples as compared to short context. They conclude that overall understanding of in context learning especially in view of the increasing context size remains incomplete and requires further work for more hypothesis validation.
+
+\subsection{Analyzing RAG performance using long context (1)}
+In Long-Context LLMs Meet RAG: Overcoming Challenges for Long Inputs in RAG \cite{jin2024longcontextllmsmeetrag} the authors evaluate the impact and benefits of long context on performance of retrieval augmented generation.  The authors observe that having more data in the prompt improves quality initially but it reduces as the as the retrieval size keeps increasing. The authors observe that the irrelevant passage negatively affects retrieval augmented generation performance and proppose optimization approaches with and without training to improve performance.
+
+\subsection{Analyzing RAG performance using long context (2)}
+In Long Context RAG Performance of Large Language Models \cite{leng2024longcontextragperformance}, the authors identify the effect of longer context on 20 major LLMs. They observe that retrieving more documents can improve performance but the improvement is generally lost as the context increases above 64K tokens.
+
+\subsection{Analyzing impact of information location in input for long context}
+In Lost in the Middle: How Language Models Use Long Contexts \cite{liu2023lostmiddlelanguagemodels} the authors try to analyze how LLMs tend to use the longer context typically availble with recent LLMs. The authors analyze performance using two tasks - multi document question answering and key value retrieval. They observe that the performance on the task is very dependent on the location of the relevant information. The observe that performance is highert when relevant information is at the beginning of the input and performance reduces as the relevant information is further towards the middle of the input. The performance again improves as the relevant information is towards the end of the input.
+
+\subsection{Does long context help in-context learning?}
+In Long-context LLMs Struggle with Long In-context Learning \cite{li2024longcontextllmsstrugglelong}, the authors introduce a new benchmark for in context learning called LongICLBench to analyze the benefit of long context to in context learning for LLMs. They observe that the longer context helps with easy tasks but on difficult tasks almost all LLMs fail. They also observe that the LLMs tend to be more attentive to examples towards the end of the prompt.
+
+\subsection{Is long context necessary?}
+In Are Long-LLMs A Necessity For Long-Context Tasks? \cite{qian2024longllmsnecessitylongcontexttasks}, the authors provide a framework called LC Boost for using short context LLMs to solve long context problems. Based on the results observed wit small context models using this framework, the authors argue that long context is not necessary and short context LLMs can also solve a lot of long context problems using this framework.
+
+\subsection{Does in context learning help with instruction following?}
+In Is in-context learning sufficient for instruction following in LLMs? \cite{zhao2024incontextlearningsufficientinstruction}, the authors try to compare the performance of in context learning with instruction finetuning and try to analyze if in context learning can help an LLM in alignment. The authors provide an insight that providing high quality examples in the context can help the model performance increase towards that of an instruction fine tuned model.
+
+\section{Methods}
+We re-implement from scratch the work presented in \cite{agarwal2024manyshotincontextlearning} - where supervised and unsupervised many-shot prompting improved performance over supervised few-shot in-context learning on MATH and GSM8K datasets in Gemini LLM models. Instead of Gemini, we evaluate the effect of many shot prompting on open source as well as small language models - especially the LLama3 family of LLMs. In \cite{agarwal2024manyshotincontextlearning}, the many-shot prompts' tokens' lengths were of the order of 100k. This means that we can try to replicate their results on models with maximum context window lengths of 128k tokens, which Llama supports. The baseline results of Gemini on MATH are in table \ref{tab:baseline_results}.
+
+\subsection{Baseline Approach}
+We re-evaluate baselines on our own and compare if they match reported results. Since we are measuring improvement over zero shot and few shot ICL on MATH, our baseline evaluation is also with zero-shot and few-shot ICL on MATH test dataset. For few-shot prompting, we include 2-5 examples with both questions and answers in the prompt. We evaluate these baselines using exact match accuracy metrics on both the full MATH test dataset and the numerical subset that we derived.
+
+\subsection{Main Methods}
+We will implement the manyshot methods proposed in \cite{agarwal2024manyshotincontextlearning} and include some of our own variations.
+
+First, we will evaluate whether unsupervised many-shot prompting - where the prompt includes up to 500 questions, but no answers - outperforms regular few-shot prompting with both questions and answers. We will then evaluate whether synthetically generated answers improve accuracy, irrespective of their quality.
+
+The results that we plan to replicate are the consistent improvements over few-shot prompting achieved by both supervised (re-inforced) and unsupervised many-shot prompting (for an average of a 7.9\% improvement) on MATH. Even if our average improvement is not the same, we expect to see a similar trend where many-shot prompting (unsupervised and re-inforced) beats regular in-context-learning over a range of a number of many-shot prompts. As an extension, we also plan to verify the finding that the many-shot prompts obtained from MATH transfer to GSM8K and improve performance slightly even though GSM8K's question distribution is different.
+
+% \noindent
+For efficiency, we will use existing frameworks (such as DsPY \cite{khattab2023dspycompilingdeclarativelanguage}) to obtain structured outputs and abstract away the parsing of generated text. We also take advantage of VLLM \cite{kwon2023efficientmemorymanagementlarge} which implement prefix prompt caching to save computation and cost when adding many-shot examples. To ensure efficient prefix prompt caching, we will only add new examples (shots) as we increase the number of shots in our many-shot ablations.
+
+\begin{table*}
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \textbf{Model} & \textbf{Prompt} & \textbf{Dataset} & \textbf{Subset} & \textbf{Accuracy (\%)}\\
+        \hline
+        Llama 3.1 8B Instruct \cite{dubey2024llama3herdmodels} & Zero Shot CoT & MATH & All & 51.9\% \\
+        \hline
+        Llama 3.1 8B Instruct (Our Eval) & Zero Shot CoT & MATH & All & 47.6\% \\
+        \hline
+        Llama 3.1 8B Instruct (Our Eval) & Zero Shot CoT & MATH & Numeric &  44.46\%\\
+        \hline
+        Gemini Ultra \cite{agarwal2024manyshotincontextlearning} & 250 Shot CoT & MATH & MATH500 & 58.8\% \\
+        \hline
+    \end{tabular}
+    \caption{Baseline results}
+    \label{tab:baseline_results}
+\end{table*}
+
+\begin{table*}
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        \textbf{Model} & \textbf{Prompt} & \textbf{Source}  & \textbf{Type} & \textbf{Dataset} & \textbf{Subset} & \textbf{Accuracy (\%)}\\
+        \hline
+        Llama 3.1 8B Instruct & 3 Shot CoT & Synthetic & Supervised & MATH & All & 31.8\% \\
+        % \hline
+        % Llama 3.1 8B Instruct & 5 Shot CoT & - & Supervised & MATH & Numeric & - \\
+        \hline
+        Llama 3.1 8B Instruct & 5 Shot CoT & MATH Test & Unsupervised & MATH & Numeric & 35.19\% \\
+        \hline
+    \end{tabular}
+    \caption{Initial experiment resutls}
+    \label{tab:experiment_results}
+\end{table*}
+
+\begin{table*}[!h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        \textbf{Model} & \textbf{Prompt} & \textbf{Source}  & \textbf{Type} & \textbf{Dataset} & \textbf{Subset} & \textbf{Accuracy (\%)}\\
+        \hline
+        Llama 3.1 8B Instruct & - & Synthetic/RAG & (Un)Supervised & - & - & - \\
+        Llama 3.1 8B Instruct & 3 Shot CoT & Synthetic & Supervised & MATH & Test & 31.2 \\
+        Llama 3.1 8B Instruct & 5 Shot CoT & Synthetic & Supervised & MATH & Test & 34.6 \\
+        Llama 3.1 8B Instruct & 10 Shot CoT & Synthetic & Supervised & MATH & Test & 33.2 \\
+        Llama 3.1 8B Instruct & 50 Shot CoT & Synthetic & Supervised & MATH & Test & 30.3 \\
+        Llama 3.1 8B Instruct & 3 Shot CoT & Synthetic & Unsupervised & MATH & Test & 32.1 \\
+        Llama 3.1 8B Instruct & 5 Shot CoT & Synthetic & Unsupervised & MATH & Test & 33.9 \\
+        Llama 3.1 8B Instruct & 10 Shot CoT & Synthetic & Unsupervised & MATH & Test & 34.1 \\
+        Llama 3.1 8B Instruct & 50 Shot CoT & Synthetic & Unsupervised & MATH & Test & 32.3 \\
+        \hline
+    \end{tabular}
+    \caption{Skeleton table for Many shot experiments with synthetic filtered and unfiltered data}
+    \label{tab:synth_experiment_results}
+\end{table*}
+
+\section{Experiments} \label{sec:experiments}
+
+Our goal is to improve performance on MATH using many shot in-context examples with Llama 3.1. Hence, we evaluate the performance of Llama 3.1 8B Instruct \cite{dubey2024llama3herdmodels} with zero shot chain of thought prompting on the MATH dataset as our baseline. We also evaluate the same model on the subset of MATH dataset which have numeric answers. These results are provided in Table~\ref{tab:baseline_results}. 
+
+It is evident from the Table \ref{tab:baseline_results} that we were unable to get the exact same accuracy as Meta. This can be attributed to a few reasons. First, Meta did not disclose the exact prompt they used to evaluate their model. Second, Meta used an LLM as a judge on top of exact match to determine the accuracy. We did not do this because of compute constraints.
+
+We further evaluate the effect of adding examples in to the model in a few shot chain of thought prompting setup. We experiment with the amount, type and source of examples. We also experiment about how the performance of the model change depending on whether the in context learning examples are provided with corresponding answers or not i.e. supervised and unsupervised in context learning. Result of these experiments are provided in Table~\ref{tab:experiment_results}.
+
+The initial experiments were done in bare minimum settings with minimal prompt engineering and data filtering, leading to results that are not competitive yet. However, moving forward, we will continue experimenting along these areas as described. Another angle that we will craft experiments around are whether the quality of synthetic examples created given a problem are important. The results of which will be filled in the table \ref{tab:synth_experiment_results}. We will experiment with different number of N-Shots, filtering and not filtering the generated synthetic data, and using supervised and unsupervised ICL prompts on different subsets (classes of problems) of the MATH dataset.
+
+% \begin{table}[h!]
+% \centering
+% \begin{tabular}{lccc}
+% \toprule
+% \textbf{Method} & \textbf{Data Subset} & \textbf{\# Samples} & \textbf{Accuracy} \\ 
+% \midrule
+% 0-Shot CoT (Meta)        & Test Set      & 5000      & 51.9\%           \\
+% 250-Shot Gemini Ultra        & Test Set      & 500      & 58\%           \\
+% 0-Shot CoT (Ours)        & Test Set      & 5000       & 37.6\%           \\
+% 3-Shot Synthetic Supervised ICL CoT        & Subset 3   & 5000          & 30.1†\%           \\
+% Method D        & Subset 4       & 5000      & 84.7\%           \\
+% Method E        & Subset 5       & 5000      & 86.3\%           \\
+% \bottomrule
+% \end{tabular}
+% \caption{Comparison of baseline and our initial experiments across data subsets with corresponding accuracy values.}
+% \label{tab:comparison}
+% \end{table}
+
+
+
+% Conclusion
+% \section{Plan}
+% Going ahead, we would like to experiment about how many shot in context learning affects the performance of the model on solving math examples. We would like to identify  if the performance gains described in \cite{agarwal2024manyshotincontextlearning} also work for smaller and open source models. Further, we will work on improving the synthetic data generation and scale it to many shots at test time. At the same time we are also working on the reasoning and prediction pipeline on the dataset in parallel. So, we are on track to reach our next big milestone of a complete pipeline and experiments in the next few weeks. 
+
+% Our weekly plan and responsibilities until the final presentation is as follows:
+% \begin{itemize}
+%     \item Nov 25 - Nov 29: Improve Synthetic Generation of Math Problems (Ajay). Concurrently, setup and organize experiment logging and plotting (Rajeev, Anish).
+%     \item Nov 30 - Dec 7: Run experiments and across the settings described in section \ref{sec:experiments} (Ajay, Rajeev, Anish). Perform synthetic data filtering for the filtered data experiment (Ajay, Anish).
+%     \item Dec 7 - Dec 11: Collect results, plot graphs and conduct a systematic analysis (Ajay, Rajeev, Anish). Refactor Code (Rajeev).
+%     \item Dec 11: Submit Poster and Report (All of us).
+% \end{itemize}
+
+\section{Code Overview}
+\textcolor{red}{Identify specific portions of code that you wrote and explain what
+those section do in prose. You should either identify a portion of code by including a screenshot
+of it and placing it in a referenced Figure in an Appendix, or by referring to specific line numbers
+(e.g. lines 234–270) in the code you upload to Gradescope.}
+
+\section{Timeline}
+\textcolor{red}{Succinctly identify how much time you spent on each of the various stages
+of the project. For example, include a table with hours spent on each of: reading papers/dataset
+websites/etc, reading code documentation (e.g. from PyTorch or Torchvision), understanding
+code from an existing implementation, compiling/running existing code, modifying existing
+code to do something new (or writing new code from scratch), writing scripts to run experiments, running experiments, compiling results, writing this document, etc.}
+
+\section{Research Log}
+\textcolor{red}{Explain the meandering path that you took to arrive at the work that
+this summary represents. Try to explain what the key challenges were and how (or if) you
+overcame them. This section is your opportunity to showcase the work that you did and is
+arguably the most important part of this document. For example, if an important line of your
+results table is empty, you can use this part of the document to explain why it wasn’t easy to fill
+in. If your plan deviated from your proposal, this is your chance to describe the work that you
+did to realize your plan needed to change.}
+
+We approached this problem with the expectation that open source models would've been as good as large closed source models in synthetic data generation with the number of studies that had been conducted. However, upon starting to actually implement simple MATH generation, we quickly realized that to generate good representative date, there would be a lot of moving components involved, such as a verifier, solver, and. In short, synthetic math data generation was another research direction in itself. 
+
+\section{Conclusion}
+\textcolor{red}{Summary of your main findings and considerations for future work}
+
+% References
+\bibliographystyle{plainnat}  % Choose a bibliography style (e.g., plainnat, abbrvnat)
+\bibliography{references}     % Add your .bib file here
+
+% \appendix
+
+% \section{Appendix}
+% \label{sec:appendix}
+
+\end{document}
