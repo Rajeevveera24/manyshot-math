@@ -1,6 +1,8 @@
 import math
 import torch
 import matplotlib.pyplot as plt
+import random
+
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from vllm import LLM, SamplingParams
 
@@ -82,25 +84,61 @@ for num_shots in num_shots_list:
 
     # print(reinforced_prompt)
     
-    supervised_prompt = supervised_prompt_template.format(supervised_prompt, math500_questions[0]["question"])
+    # Sample 30 questions randomly from math500 dataset
+    sampled_questions = random.sample(math500_questions, k=100)
     
-    unsupervised_prompt = unsupervised_prompt_template.format(unsupervised_prompt, math500_questions[0]["question"])
+    supervised_batch_ppl = []
+    unsupervised_batch_ppl = []
+    reinforced_batch_ppl = []
+    supervised_batch_tokens = []
+    unsupervised_batch_tokens = []
+    reinforced_batch_tokens = []
     
-    reinforced_prompt = reinforced_prompt_template.format(reinforced_prompt, math500_questions[0]["question"])
+    # Compute perplexity for each sampled question
+    for question in sampled_questions:
+        sup_prompt = supervised_prompt_template.format(supervised_prompt, question["question"])
+        unsup_prompt = unsupervised_prompt_template.format(unsupervised_prompt, question["question"])
+        reinf_prompt = reinforced_prompt_template.format(reinforced_prompt, question["question"])
+        
+        sup_ppl, sup_tokens = compute_perplexity(sup_prompt)
+        unsup_ppl, unsup_tokens = compute_perplexity(unsup_prompt)
+        reinf_ppl, reinf_tokens = compute_perplexity(reinf_prompt)
+        
+        supervised_batch_ppl.append(sup_ppl)
+        unsupervised_batch_ppl.append(unsup_ppl)
+        reinforced_batch_ppl.append(reinf_ppl)
+        supervised_batch_tokens.append(sup_tokens)
+        unsupervised_batch_tokens.append(unsup_tokens)
+        reinforced_batch_tokens.append(reinf_tokens)
     
-    # print(reinforced_prompt)
-    # exit(0)
+    # Calculate averages
+    supervised_ppl = sum(supervised_batch_ppl) / len(supervised_batch_ppl)
+    unsupervised_ppl = sum(unsupervised_batch_ppl) / len(unsupervised_batch_ppl) 
+    reinforced_ppl = sum(reinforced_batch_ppl) / len(reinforced_batch_ppl)
     
-    supervised_ppl, supervised_tokens = compute_perplexity(supervised_prompt)
-    unsupervised_ppl, unsupervised_tokens = compute_perplexity(unsupervised_prompt)
-    reinforced_ppl, reinforced_tokens = compute_perplexity(reinforced_prompt)
+    supervised_tokens = sum(supervised_batch_tokens) / len(supervised_batch_tokens)
+    unsupervised_tokens = sum(unsupervised_batch_tokens) / len(unsupervised_batch_tokens)
+    reinforced_tokens = sum(reinforced_batch_tokens) / len(reinforced_batch_tokens)
+    
+    # supervised_prompt = supervised_prompt_template.format(supervised_prompt, math500_questions[0]["question"])
+    
+    # unsupervised_prompt = unsupervised_prompt_template.format(unsupervised_prompt, math500_questions[0]["question"])
+    
+    # reinforced_prompt = reinforced_prompt_template.format(reinforced_prompt, math500_questions[0]["question"])
+    
+    # # print(reinforced_prompt)
+    # # exit(0)
+    
+    # supervised_ppl, supervised_tokens = compute_perplexity(supervised_prompt)
+    # unsupervised_ppl, unsupervised_tokens = compute_perplexity(unsupervised_prompt)
+    # reinforced_ppl, reinforced_tokens = compute_perplexity(reinforced_prompt)
     
     supervised_ppls.append(supervised_ppl)
     unsupervised_ppls.append(unsupervised_ppl)
     reinforced_ppls.append(reinforced_ppl)
-    supervised_tokens_list.append(supervised_tokens)
-    unsupervised_tokens_list.append(unsupervised_tokens)
-    reinforced_tokens_list.append(reinforced_tokens)
+    supervised_tokens_list.append(supervised_tokens / 1280)
+    unsupervised_tokens_list.append(unsupervised_tokens / 1280)
+    reinforced_tokens_list.append(reinforced_tokens / 1280)
     
     print(f"Num shots: {num_shots}")
     print(f"Supervised Perplexity: {supervised_ppl} ({supervised_tokens} tokens)")
